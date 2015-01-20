@@ -36,7 +36,7 @@
     @autoreleasepool {
         NSString *filePath = [[[[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"API DB"] stringByAppendingPathComponent:folderName] stringByAppendingPathComponent:fileName] stringByAppendingPathExtension:@"plist"];
         
-        return [NSDictionary dictionaryWithContentsOfFile:filePath];
+        return @{@"json": [NSDictionary dictionaryWithContentsOfFile:filePath], @"modifiedDate": [[[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:nil] fileModificationDate]};
     }
 }
 

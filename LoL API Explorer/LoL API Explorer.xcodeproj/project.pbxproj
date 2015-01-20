@@ -15,6 +15,7 @@
 		17D2E7BB1A6EBC73002ACBB3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17D2E7BA1A6EBC73002ACBB3 /* Default-568h@2x.png */; };
 		17D2E7BE1A6EE3AD002ACBB3 /* ILA_LocalStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D2E7BD1A6EE3AD002ACBB3 /* ILA_LocalStore.m */; };
 		17D2E7C11A6EE46E002ACBB3 /* ILA_Champion.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D2E7C01A6EE46E002ACBB3 /* ILA_Champion.m */; };
+		17D2E7C51A6EF5CF002ACBB3 /* ILA_Connection.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D2E7C41A6EF5CF002ACBB3 /* ILA_Connection.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,8 @@
 		17D2E7BF1A6EE46E002ACBB3 /* ILA_Champion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ILA_Champion.h; path = "iOS LoL API/ILA_Champion.h"; sourceTree = "<group>"; };
 		17D2E7C01A6EE46E002ACBB3 /* ILA_Champion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ILA_Champion.m; path = "iOS LoL API/ILA_Champion.m"; sourceTree = "<group>"; };
 		17D2E7C21A6EF422002ACBB3 /* ILA_Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ILA_Constants.h; path = "iOS LoL API/ILA_Constants.h"; sourceTree = "<group>"; };
+		17D2E7C31A6EF5CF002ACBB3 /* ILA_Connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ILA_Connection.h; path = "iOS LoL API/ILA_Connection.h"; sourceTree = "<group>"; };
+		17D2E7C41A6EF5CF002ACBB3 /* ILA_Connection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ILA_Connection.m; path = "iOS LoL API/ILA_Connection.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +133,8 @@
 			children = (
 				17D2E7AA1A6EA63E002ACBB3 /* iOSLoLAPI.h */,
 				17D2E7C21A6EF422002ACBB3 /* ILA_Constants.h */,
+				17D2E7C31A6EF5CF002ACBB3 /* ILA_Connection.h */,
+				17D2E7C41A6EF5CF002ACBB3 /* ILA_Connection.m */,
 				17D2E7BC1A6EE3AD002ACBB3 /* ILA_LocalStore.h */,
 				17D2E7BD1A6EE3AD002ACBB3 /* ILA_LocalStore.m */,
 				17D2E7AE1A6EA696002ACBB3 /* ILA_Setup.h */,
@@ -243,6 +248,7 @@
 				177870841A6E9C5700C94D22 /* AppDelegate.m in Sources */,
 				177870811A6E9C5700C94D22 /* main.m in Sources */,
 				17D2E7B01A6EA696002ACBB3 /* ILA_Setup.m in Sources */,
+				17D2E7C51A6EF5CF002ACBB3 /* ILA_Connection.m in Sources */,
 				17D2E7BE1A6EE3AD002ACBB3 /* ILA_LocalStore.m in Sources */,
 				17D2E7C11A6EE46E002ACBB3 /* ILA_Champion.m in Sources */,
 			);

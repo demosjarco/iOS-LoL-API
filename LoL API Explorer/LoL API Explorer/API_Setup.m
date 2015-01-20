@@ -39,6 +39,8 @@
     regionPicker.delegate = self;
     regionPicker.dataSource = self;
     [self.view addSubview:regionPicker];
+    
+    NSLog(@"%@.plist", [@"https://na.api.pvp.net/api/lol/na/v1.2/champion/266?api_key=4ec57ebd-8460-4529-a719-8f128d7f7cf7" lastPathComponent]);
 }
 
 - (void)useTestKey {
