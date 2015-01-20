@@ -10,6 +10,7 @@
 		177870811A6E9C5700C94D22 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 177870801A6E9C5700C94D22 /* main.m */; };
 		177870841A6E9C5700C94D22 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 177870831A6E9C5700C94D22 /* AppDelegate.m */; };
 		1778709B1A6E9C5700C94D22 /* LoL_API_ExplorerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1778709A1A6E9C5700C94D22 /* LoL_API_ExplorerTests.m */; };
+		17D2E7B01A6EA696002ACBB3 /* ILA_Setup.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D2E7AF1A6EA696002ACBB3 /* ILA_Setup.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +32,9 @@
 		177870941A6E9C5700C94D22 /* LoL API ExplorerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "LoL API ExplorerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		177870991A6E9C5700C94D22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1778709A1A6E9C5700C94D22 /* LoL_API_ExplorerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoL_API_ExplorerTests.m; sourceTree = "<group>"; };
+		17D2E7AA1A6EA63E002ACBB3 /* iOSLoLAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iOSLoLAPI.h; path = "iOS LoL API/iOSLoLAPI.h"; sourceTree = "<group>"; };
+		17D2E7AE1A6EA696002ACBB3 /* ILA_Setup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ILA_Setup.h; path = "iOS LoL API/ILA_Setup.h"; sourceTree = "<group>"; };
+		17D2E7AF1A6EA696002ACBB3 /* ILA_Setup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ILA_Setup.m; path = "iOS LoL API/ILA_Setup.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,7 @@
 			children = (
 				177870821A6E9C5700C94D22 /* AppDelegate.h */,
 				177870831A6E9C5700C94D22 /* AppDelegate.m */,
+				17D2E7A61A6EA56E002ACBB3 /* iOS LoL API */,
 				1778707E1A6E9C5700C94D22 /* Supporting Files */,
 			);
 			path = "LoL API Explorer";
@@ -103,6 +108,16 @@
 				177870991A6E9C5700C94D22 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		17D2E7A61A6EA56E002ACBB3 /* iOS LoL API */ = {
+			isa = PBXGroup;
+			children = (
+				17D2E7AA1A6EA63E002ACBB3 /* iOSLoLAPI.h */,
+				17D2E7AE1A6EA696002ACBB3 /* ILA_Setup.h */,
+				17D2E7AF1A6EA696002ACBB3 /* ILA_Setup.m */,
+			);
+			name = "iOS LoL API";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +164,7 @@
 		177870731A6E9C5700C94D22 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = ILA_;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Tech Genius";
 				TargetAttributes = {
@@ -204,6 +220,7 @@
 			files = (
 				177870841A6E9C5700C94D22 /* AppDelegate.m in Sources */,
 				177870811A6E9C5700C94D22 /* main.m in Sources */,
+				17D2E7B01A6EA696002ACBB3 /* ILA_Setup.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
