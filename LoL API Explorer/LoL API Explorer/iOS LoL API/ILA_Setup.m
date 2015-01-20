@@ -10,6 +10,10 @@
 
 @implementation ILA_Setup
 
-
+/**
+ */
++ (void)setupAPIwithKey:(NSString *)apiKey region:(apiRegion)region {
+    
+}
 
 @end

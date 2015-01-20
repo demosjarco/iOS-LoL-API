@@ -8,16 +8,19 @@
 
 #import "AppDelegate.h"
 
-#import "iOSLoLAPI.h"
-
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    API_Setup *apiSetup = [[API_Setup alloc] init];
+    
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:apiSetup];
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

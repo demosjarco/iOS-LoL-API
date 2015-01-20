@@ -10,27 +10,29 @@
 
 typedef enum apiRegion : NSUInteger {
     /** Brazil */
-    BR,
+    BR = 0,
     /** EU Nordic & East */
-    EUNE,
+    EUNE = 1,
     /** EU West */
-    EUW,
+    EUW = 2,
     /** Korea */
-    KR,
+    KR = 3,
     /** Latin America North */
-    LAN,
+    LAN = 4,
     /** Latin America South */
-    LAS,
+    LAS = 5,
     /** North America */
-    NA,
+    NA = 6,
     /** Oceania */
-    OCE,
+    OCE = 7,
     /** Russia */
-    RU,
+    RU = 8,
     /** Turkey */
-    TR,
+    TR = 9,
 } apiRegion;
 
 @interface ILA_Setup : NSObject
+
++ (void)setupAPIwithKey:(NSString *)apiKey region:(apiRegion)region;
 
 @end
