@@ -5,16 +5,16 @@ Objective-C client for retrieving data from "League of Legends" API. All availab
 ## Riot API Terms & Conditions
 Please read Riot Games API terms [here](https://developer.riotgames.com/terms) and adhere to those rules. iOS LoL API is not responsible for any API misuses. iOS LoL API isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.
 
-## Requirements
-- ARC
-
-### Cocoa Frameworks Required
-- **TBA**
-- 
 ## Why you should use this
 - Heavily documented
 - Offline capability
 - Data Dragon image support built in
 - Rate limit support
+
+## Requirements
+- ARC
+
+### Cocoa Frameworks Required
+- TBA
 
 ## Getting Started
