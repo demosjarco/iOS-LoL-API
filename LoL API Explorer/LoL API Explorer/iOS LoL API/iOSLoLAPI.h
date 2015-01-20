@@ -9,8 +9,6 @@
 #ifndef LoL_API_Explorer_iOSLoLAPI_h
 #define LoL_API_Explorer_iOSLoLAPI_h
 
-#if __has_include("League.h")
 #import "ILA_Setup.h"
-#endif
 
 #endif
