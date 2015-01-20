@@ -9,6 +9,12 @@ Please read Riot Games API terms [here](https://developer.riotgames.com/terms) a
 - ARC
 
 ### Cocoa Frameworks Required
-- **CFNetwork.framework**
+- **TBA**
+- 
+## Why you should use this
+- Heavily documented
+- Offline capability
+- Data Dragon image support built in
+- Rate limit support
 
 ## Getting Started
