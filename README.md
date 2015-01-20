@@ -8,7 +8,7 @@ Please read Riot Games API terms [here](https://developer.riotgames.com/terms) a
 ## Requirements
 - ARC
 
-Cocoa Frameworks Required
+### Cocoa Frameworks Required
 - **CFNetwork.framework**
 
 ## Getting Started
