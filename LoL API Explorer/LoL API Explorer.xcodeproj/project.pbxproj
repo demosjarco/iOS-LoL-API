@@ -13,6 +13,7 @@
 		17D2E7B01A6EA696002ACBB3 /* ILA_Setup.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D2E7AF1A6EA696002ACBB3 /* ILA_Setup.m */; };
 		17D2E7B31A6EB18C002ACBB3 /* API_Setup.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D2E7B21A6EB18C002ACBB3 /* API_Setup.m */; };
 		17D2E7BB1A6EBC73002ACBB3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17D2E7BA1A6EBC73002ACBB3 /* Default-568h@2x.png */; };
+		17D2E7BE1A6EE3AD002ACBB3 /* ILA_LocalStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D2E7BD1A6EE3AD002ACBB3 /* ILA_LocalStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		17D2E7B11A6EB18C002ACBB3 /* API_Setup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API_Setup.h; sourceTree = "<group>"; };
 		17D2E7B21A6EB18C002ACBB3 /* API_Setup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API_Setup.m; sourceTree = "<group>"; };
 		17D2E7BA1A6EBC73002ACBB3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		17D2E7BC1A6EE3AD002ACBB3 /* ILA_LocalStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ILA_LocalStore.h; path = "iOS LoL API/ILA_LocalStore.h"; sourceTree = "<group>"; };
+		17D2E7BD1A6EE3AD002ACBB3 /* ILA_LocalStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ILA_LocalStore.m; path = "iOS LoL API/ILA_LocalStore.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,8 @@
 			isa = PBXGroup;
 			children = (
 				17D2E7AA1A6EA63E002ACBB3 /* iOSLoLAPI.h */,
+				17D2E7BC1A6EE3AD002ACBB3 /* ILA_LocalStore.h */,
+				17D2E7BD1A6EE3AD002ACBB3 /* ILA_LocalStore.m */,
 				17D2E7AE1A6EA696002ACBB3 /* ILA_Setup.h */,
 				17D2E7AF1A6EA696002ACBB3 /* ILA_Setup.m */,
 			);
@@ -231,6 +236,7 @@
 				177870841A6E9C5700C94D22 /* AppDelegate.m in Sources */,
 				177870811A6E9C5700C94D22 /* main.m in Sources */,
 				17D2E7B01A6EA696002ACBB3 /* ILA_Setup.m in Sources */,
+				17D2E7BE1A6EE3AD002ACBB3 /* ILA_LocalStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
