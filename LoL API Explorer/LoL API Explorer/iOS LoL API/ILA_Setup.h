@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-/** Possible regional endpoints of League of Legends API */
 typedef enum apiRegion : NSUInteger {
     /** Brazil */
     BR,
