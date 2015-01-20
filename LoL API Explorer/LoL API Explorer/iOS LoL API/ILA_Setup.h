@@ -33,6 +33,6 @@ typedef enum apiRegion : NSUInteger {
 
 @interface ILA_Setup : NSObject
 
-+ (void)setupAPIwithKey:(NSString *)apiKey region:(apiRegion)region;
++ (BOOL)setupAPIwithKey:(NSString *)apiKey region:(apiRegion)region;
 
 @end
