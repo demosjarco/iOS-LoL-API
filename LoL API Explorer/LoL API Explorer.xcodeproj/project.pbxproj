@@ -46,7 +46,7 @@
 		17D2E7BD1A6EE3AD002ACBB3 /* ILA_LocalStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ILA_LocalStore.m; path = "iOS LoL API/ILA_LocalStore.m"; sourceTree = "<group>"; };
 		17D2E7BF1A6EE46E002ACBB3 /* ILA_Champion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ILA_Champion.h; path = "iOS LoL API/ILA_Champion.h"; sourceTree = "<group>"; };
 		17D2E7C01A6EE46E002ACBB3 /* ILA_Champion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ILA_Champion.m; path = "iOS LoL API/ILA_Champion.m"; sourceTree = "<group>"; };
-		17D2E7C21A6EF422002ACBB3 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = "iOS LoL API/Constants.h"; sourceTree = "<group>"; };
+		17D2E7C21A6EF422002ACBB3 /* ILA_Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ILA_Constants.h; path = "iOS LoL API/ILA_Constants.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,7 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				17D2E7AA1A6EA63E002ACBB3 /* iOSLoLAPI.h */,
-				17D2E7C21A6EF422002ACBB3 /* Constants.h */,
+				17D2E7C21A6EF422002ACBB3 /* ILA_Constants.h */,
 				17D2E7BC1A6EE3AD002ACBB3 /* ILA_LocalStore.h */,
 				17D2E7BD1A6EE3AD002ACBB3 /* ILA_LocalStore.m */,
 				17D2E7AE1A6EA696002ACBB3 /* ILA_Setup.h */,
