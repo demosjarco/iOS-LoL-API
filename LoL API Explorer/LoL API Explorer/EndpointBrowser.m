@@ -11,6 +11,8 @@
 #import "DetailArray.h"
 #import "DetailDictionary.h"
 
+#import "iOSLoLAPI.h"
+
 @interface EndpointBrowser ()
 
 @end
@@ -75,7 +77,44 @@
         case 0:
             switch (indexPath.row) {
                 case 0:
-                    <#statements#>
+                    @autoreleasepool {
+                        UIAlertController *alert = [UIAlertController alertControllerWithTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text message:[[tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text stringByAppendingString:@"\n\n\n\nParam to retrieve only free to play champions."] preferredStyle:UIAlertControllerStyleAlert];
+                        UISwitch *freeChampSwitch = [[UISwitch alloc] initWithFrame:CGRectMake((270 - 51) /2, 95, 51, 31)];
+                        [alert.view addSubview:freeChampSwitch];
+                        [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+                        [alert addAction:[UIAlertAction actionWithTitle:@"Submit" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                            [ILA_Champion getAllChampions:freeChampSwitch.on :^(NSArray *champions) {
+                                @autoreleasepool {
+                                    DetailArray *detail = [[DetailArray alloc] init];
+                                    detail.title = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
+                                    detail.content = champions;
+                                    [self.navigationController pushViewController:detail animated:YES];
+                                }
+                            }];
+                        }]];
+                        [self presentViewController:alert animated:YES completion:nil];
+                    }
+                    break;
+                case 1:
+                    @autoreleasepool {
+                        UIAlertController *alert = [UIAlertController alertControllerWithTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text message:[tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text preferredStyle:UIAlertControllerStyleAlert];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the champion to retrieve.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+                        [alert addAction:[UIAlertAction actionWithTitle:@"Submit" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                            [ILA_Champion getChampionByID:[alert.textFields[0] text].intValue :^(NSDictionary *champInfo) {
+                                @autoreleasepool {
+                                    DetailDictionary *detail = [[DetailDictionary alloc] init];
+                                    detail.title = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
+                                    detail.content = champInfo;
+                                    [self.navigationController pushViewController:detail animated:YES];
+                                }
+                            }];
+                        }]];
+                        [self presentViewController:alert animated:YES completion:nil];
+                    }
                     break;
                     
                 default:

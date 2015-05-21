@@ -15,6 +15,7 @@
 		177E67651B0E5022009F665D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 177E67641B0E5022009F665D /* Images.xcassets */; };
 		177E676C1B0E5393009F665D /* DetailArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 177E676B1B0E5393009F665D /* DetailArray.m */; };
 		177E676F1B0E53A3009F665D /* DetailDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 177E676E1B0E53A3009F665D /* DetailDictionary.m */; };
+		177E67711B0E7C2F009F665D /* Regional Endpoints.plist in Resources */ = {isa = PBXBuildFile; fileRef = 177E67701B0E7C2F009F665D /* Regional Endpoints.plist */; };
 		17D2E7B01A6EA696002ACBB3 /* ILA_Setup.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D2E7AF1A6EA696002ACBB3 /* ILA_Setup.m */; };
 		17D2E7BE1A6EE3AD002ACBB3 /* ILA_LocalStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D2E7BD1A6EE3AD002ACBB3 /* ILA_LocalStore.m */; };
 		17D2E7C11A6EE46E002ACBB3 /* ILA_Champion.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D2E7C01A6EE46E002ACBB3 /* ILA_Champion.m */; };
@@ -48,6 +49,7 @@
 		177E676B1B0E5393009F665D /* DetailArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailArray.m; path = EndpointBrowserDetailViews/DetailArray.m; sourceTree = "<group>"; };
 		177E676D1B0E53A3009F665D /* DetailDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailDictionary.h; path = EndpointBrowserDetailViews/DetailDictionary.h; sourceTree = "<group>"; };
 		177E676E1B0E53A3009F665D /* DetailDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailDictionary.m; path = EndpointBrowserDetailViews/DetailDictionary.m; sourceTree = "<group>"; };
+		177E67701B0E7C2F009F665D /* Regional Endpoints.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Regional Endpoints.plist"; path = "iOS LoL API/Regional Endpoints.plist"; sourceTree = "<group>"; };
 		17D2E7AA1A6EA63E002ACBB3 /* iOSLoLAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iOSLoLAPI.h; path = "iOS LoL API/iOSLoLAPI.h"; sourceTree = "<group>"; };
 		17D2E7AE1A6EA696002ACBB3 /* ILA_Setup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ILA_Setup.h; path = "iOS LoL API/ILA_Setup.h"; sourceTree = "<group>"; };
 		17D2E7AF1A6EA696002ACBB3 /* ILA_Setup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ILA_Setup.m; path = "iOS LoL API/ILA_Setup.m"; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				17D2E7AF1A6EA696002ACBB3 /* ILA_Setup.m */,
 				17D2E7BF1A6EE46E002ACBB3 /* ILA_Champion.h */,
 				17D2E7C01A6EE46E002ACBB3 /* ILA_Champion.m */,
+				177E67701B0E7C2F009F665D /* Regional Endpoints.plist */,
 			);
 			name = "iOS LoL API";
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 			files = (
 				177E67651B0E5022009F665D /* Images.xcassets in Resources */,
 				177E67601B0E43C6009F665D /* Endpoints.plist in Resources */,
+				177E67711B0E7C2F009F665D /* Regional Endpoints.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
