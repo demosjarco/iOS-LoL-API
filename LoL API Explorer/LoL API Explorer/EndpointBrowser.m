@@ -8,6 +8,9 @@
 
 #import "EndpointBrowser.h"
 
+#import "DetailArray.h"
+#import "DetailDictionary.h"
+
 @interface EndpointBrowser ()
 
 @end
@@ -59,6 +62,7 @@
     // Configure the cell...
     cell.textLabel.text = [[[[[self endpoints] objectAtIndex:indexPath.section] objectForKey:@"subEndpoints"] objectAtIndex:indexPath.row] objectForKey:@"relativePath"];
     cell.detailTextLabel.text = [[[[[self endpoints] objectAtIndex:indexPath.section] objectForKey:@"subEndpoints"] objectAtIndex:indexPath.row] objectForKey:@"description"];
+    
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
@@ -66,6 +70,22 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    switch (indexPath.section) {
+        case 0:
+            switch (indexPath.row) {
+                case 0:
+                    <#statements#>
+                    break;
+                    
+                default:
+                    break;
+            }
+            break;
+            
+        default:
+            break;
+    }
 }
 
 @end

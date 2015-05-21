@@ -10,4 +10,6 @@
 
 @interface DetailDictionary : UITableViewController
 
+@property (nonatomic, retain) NSDictionary *content;
+
 @end
