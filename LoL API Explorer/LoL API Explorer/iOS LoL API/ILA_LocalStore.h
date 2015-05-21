@@ -10,4 +10,7 @@
 
 @interface ILA_LocalStore : NSObject
 
++ (void)saveCacheOf:(id)json withName:(NSString *)fileName inFolder:(NSString *)folder :(void (^)(BOOL succeeded))completionBlock;
++ (void)getCacheOfFilename:(NSString *)fileName inFolder:(NSString *)folder :(void (^)(NSDictionary *dictJson, NSArray *arrJson))completionBlock;
+
 @end

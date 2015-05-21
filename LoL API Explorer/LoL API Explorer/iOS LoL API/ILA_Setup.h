@@ -10,4 +10,7 @@
 
 @interface ILA_Setup : NSObject
 
++ (void)getAPIkey :(void (^)(NSString *apiKey))completionBlock;
++ (void)getLeagueRegion :(void (^)(NSString *regionCode))completionBlock;
+
 @end

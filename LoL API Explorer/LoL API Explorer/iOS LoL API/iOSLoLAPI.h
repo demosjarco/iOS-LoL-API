@@ -9,8 +9,6 @@
 #ifndef LoL_API_Explorer_iOSLoLAPI_h
 #define LoL_API_Explorer_iOSLoLAPI_h
 
-#import "ILA_Setup.h"
-
 #import "ILA_Champion.h"
 
 #endif

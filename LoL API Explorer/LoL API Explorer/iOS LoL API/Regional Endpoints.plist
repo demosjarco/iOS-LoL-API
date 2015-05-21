@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>br</key>
+        <dict>
+            <key>Region</key>
+            <string>BR</string>
+            <key>Platform ID</key>
+            <string>BR1</string>
+            <key>Host</key>
+            <string>br.api.pvp.net</string>
+        </dict>
+        <key>eune</key>
+        <dict>
+            <key>Region</key>
+            <string>EUNE</string>
+            <key>Platform ID</key>
+            <string>EUN1</string>
+            <key>Host</key>
+            <string>eune.api.pvp.net</string>
+        </dict>
+        <key>euw</key>
+        <dict>
+            <key>Region</key>
+            <string>EUW</string>
+            <key>Platform ID</key>
+            <string>EUW1</string>
+            <key>Host</key>
+            <string>euw.api.pvp.net</string>
+        </dict>
+        <key>kr</key>
+        <dict>
+            <key>Region</key>
+            <string>KR</string>
+            <key>Platform ID</key>
+            <string>KR</string>
+            <key>Host</key>
+            <string>kr.api.pvp.net</string>
+        </dict>
+        <key>lan</key>
+        <dict>
+            <key>Region</key>
+            <string>LAN</string>
+            <key>Platform ID</key>
+            <string>LA1</string>
+            <key>Host</key>
+            <string>lan.api.pvp.net</string>
+        </dict>
+        <key>las</key>
+        <dict>
+            <key>Region</key>
+            <string>LAS</string>
+            <key>Platform ID</key>
+            <string>LA2</string>
+            <key>Host</key>
+            <string>las.api.pvp.net</string>
+        </dict>
+        <key>na</key>
+        <dict>
+            <key>Region</key>
+            <string>NA</string>
+            <key>Platform ID</key>
+            <string>NA1</string>
+            <key>Host</key>
+            <string>na.api.pvp.net</string>
+        </dict>
+        <key>oce</key>
+        <dict>
+            <key>Region</key>
+            <string>OCE</string>
+            <key>Platform ID</key>
+            <string>OC1</string>
+            <key>Host</key>
+            <string>oce.api.pvp.net</string>
+        </dict>
+        <key>tr</key>
+        <dict>
+            <key>Region</key>
+            <string>TR</string>
+            <key>Platform ID</key>
+            <string>TR1</string>
+            <key>Host</key>
+            <string>tr.api.pvp.net</string>
+        </dict>
+        <key>ru</key>
+        <dict>
+            <key>Region</key>
+            <string>RU</string>
+            <key>Platform ID</key>
+            <string>RU</string>
+            <key>Host</key>
+            <string>ru.api.pvp.net</string>
+        </dict>
+        <key>pbe</key>
+        <dict>
+            <key>Region</key>
+            <string>PBE</string>
+            <key>Platform ID</key>
+            <string>PBE1</string>
+            <key>Host</key>
+            <string>pbe.api.pvp.net</string>
+        </dict>
+        <key>global</key>
+        <dict>
+            <key>Region</key>
+            <string>Global</string>
+            <key>Platform ID</key>
+            <string></string>
+            <key>Host</key>
+            <string>global.api.pvp.net</string>
+        </dict>
+    </dict>
+</plist>
