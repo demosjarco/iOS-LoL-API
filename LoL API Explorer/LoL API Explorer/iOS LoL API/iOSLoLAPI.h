@@ -11,4 +11,6 @@
 
 #import "ILA_Setup.h"
 
+#import "ILA_Champion.h"
+
 #endif

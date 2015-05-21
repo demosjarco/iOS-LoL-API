@@ -10,70 +10,31 @@
 
 @implementation ILA_Setup
 
-#pragma mark - Public methods
+#pragma mark - Private methods
 
 /**
- Saves API key to disk for later use and offline access.
- @warning Call this method before any other API request to avoid 401 (Unauthorized) response.
- @note This method can be called as many times as wanted to change region. All future API calls will use new region passed.
- @todo Encrypt stored API key.
+ This is the method that the API calls to get the api key. Use this method to supply this framework with your API Key.
+ @note This is called every times any endpoint is used so make sure either this is saved to disk or on a server that has a decent rate limit.
  @see https://developer.riotgames.com for API key.
- @param apiKey
-        The 32 character key (including hyphens) that you got from Riot.
- @param region
-        @p NSUInteger of region apiRegion enumeration.
- @return @p BOOL whether saving succeded or not.
+ @warning this method has no validation for your key so make sure its formatted correctly (no spaces, etc.)
+ @return @p apiKey should be the NSString value of your key
  */
-+ (BOOL)setupAPIwithKey:(NSString *)apiKey region:(apiRegion)region {
++ (void)getAPIkey :(void (^)(NSString *apiKey))completionBlock {
+    completionBlock(@"2112a619-bd40-4f33-a086-cb41d67c3423");
+}
+
+/**
+ This is the method where the API gets what region it's supposed to get data from.
+ @note This is called every times any endpoint is used so make sure either this is saved to disk or on a server that has a decent rate limit.
+ @return @p regionCode should be the NSString (lowercase) value of your region
+ */
++ (void)getLeagueRegion :(void (^)(NSString *regionCode))completionBlock {
     @autoreleasepool {
-        // Create directory if needed
-        NSString *filePath = [[[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"API DB"] stringByAppendingPathComponent:@"main"] stringByAppendingPathExtension:@"plist"];
-        
-        @autoreleasepool {
-            NSFileManager *filemgr = [NSFileManager defaultManager];
-            if (![filemgr fileExistsAtPath:[filePath stringByDeletingLastPathComponent]]) {
-                [filemgr createDirectoryAtPath:[filePath stringByDeletingLastPathComponent] withIntermediateDirectories:NO attributes:nil error:nil];
-            }
-        }
-        
-        NSMutableDictionary *dict = @{@"apiKey": apiKey}.mutableCopy;
-        switch (region) {
-            case 0:
-                [dict setObject:@"BR" forKey:@"endpoint"];
-                break;
-            case 1:
-                [dict setObject:@"EUNE" forKey:@"endpoint"];
-                break;
-            case 2:
-                [dict setObject:@"EUW" forKey:@"endpoint"];
-                break;
-            case 3:
-                [dict setObject:@"KR" forKey:@"endpoint"];
-                break;
-            case 4:
-                [dict setObject:@"LAN" forKey:@"endpoint"];
-                break;
-            case 5:
-                [dict setObject:@"LAS" forKey:@"endpoint"];
-                break;
-            case 6:
-                [dict setObject:@"NA" forKey:@"endpoint"];
-                break;
-            case 7:
-                [dict setObject:@"OCE" forKey:@"endpoint"];
-                break;
-            case 8:
-                [dict setObject:@"RU" forKey:@"endpoint"];
-                break;
-            case 9:
-                [dict setObject:@"TR" forKey:@"endpoint"];
-                break;
-                
-            default:
-                break;
-        }
-        return [dict writeToFile:filePath atomically:YES];
+        NSString *regionCode = @"NA";
+        completionBlock([regionCode lowercaseString]);
     }
 }
+
+#pragma mark - Public methods
 
 @end

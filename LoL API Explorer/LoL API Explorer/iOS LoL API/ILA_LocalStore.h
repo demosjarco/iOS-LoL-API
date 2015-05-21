@@ -10,8 +10,4 @@
 
 @interface ILA_LocalStore : NSObject
 
-+ (NSDictionary *)readKeyAndRegion;
-+ (BOOL)writeToLocalStore:(NSDictionary *)item inFolder:(NSString *)folderName withFilename:(NSString *)fileName;
-+ (NSDictionary *)getItemFromLocalStoreForFilename:(NSString *)fileName inFolder:(NSString *)folderName;
-
 @end

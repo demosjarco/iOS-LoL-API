@@ -12,6 +12,4 @@
 
 @interface ILA_Connection : NSObject
 
-+ (void)connectWithURL:(NSString *)url completion:(void(^)(NSDictionary *json, NSDate *dateOfLocalStore, NSInteger statusCode, NSError *connectionError))completionBlock;
-
 @end

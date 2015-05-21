@@ -17,9 +17,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    API_Setup *apiSetup = [[API_Setup alloc] init];
+    self.viewController = [[EndpointBrowser alloc] initWithStyle:UITableViewStyleGrouped];
     
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:apiSetup];
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
     [self.window makeKeyAndVisible];
     return YES;
 }

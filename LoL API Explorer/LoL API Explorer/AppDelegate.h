@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-#import "API_Setup.h"
+#import "EndpointBrowser.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) API_Setup *viewController;
+@property (strong, nonatomic) EndpointBrowser *viewController;
 
 @end
