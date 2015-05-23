@@ -44,7 +44,7 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.selectionStyle = UITableViewCellSelectionStyleDefault;
     } else {
-        cell.detailTextLabel.text = [self.content.allValues[indexPath.row] stringValue];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", self.content.allValues[indexPath.row]];
         cell.accessoryType = UITableViewCellAccessoryNone;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
