@@ -10,5 +10,6 @@
 #define LoL_API_Explorer_iOSLoLAPI_h
 
 #import "ILA_Champion.h"
+#import "ILA_CurrentGame.h"
 
 #endif
