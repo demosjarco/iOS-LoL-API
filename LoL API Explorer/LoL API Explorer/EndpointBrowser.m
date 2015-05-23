@@ -500,6 +500,57 @@
             }
             break;
             
+        case 5:
+            switch (indexPath.row) {
+                case 0:
+                    @autoreleasepool {
+                        UIAlertController *alert = [UIAlertController alertControllerWithTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text message:[tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text preferredStyle:UIAlertControllerStyleAlert];
+                        [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+                        [alert addAction:[UIAlertAction actionWithTitle:@"Submit" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                            @autoreleasepool {
+                                champData temp = all;
+                                [ILA_StaticData getChampionList:temp :^(NSDictionary *championList) {
+                                    @autoreleasepool {
+                                        DetailDictionary *detail = [[DetailDictionary alloc] init];
+                                        detail.title = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
+                                        detail.content = championList;
+                                        [self.navigationController pushViewController:detail animated:YES];
+                                    }
+                                }];
+                            }
+                        }]];
+                        [self presentViewController:alert animated:YES completion:nil];
+                    }
+                    break;
+                    
+                case 1:
+                    @autoreleasepool {
+                        UIAlertController *alert = [UIAlertController alertControllerWithTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text message:[tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text preferredStyle:UIAlertControllerStyleAlert];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the champion to retrieve.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+                        [alert addAction:[UIAlertAction actionWithTitle:@"Submit" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                            @autoreleasepool {
+                                champData temp = all;
+                                [ILA_StaticData getChampionInfoFor:[alert.textFields[0] text].intValue withData:temp :^(NSDictionary *championList) {
+                                    @autoreleasepool {
+                                        DetailDictionary *detail = [[DetailDictionary alloc] init];
+                                        detail.title = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
+                                        detail.content = championList;
+                                        [self.navigationController pushViewController:detail animated:YES];
+                                    }
+                                }];
+                            }
+                        }]];
+                        [self presentViewController:alert animated:YES completion:nil];
+                    }
+                    break;
+                    
+            }
+            break;
+            
         default:
             break;
     }
