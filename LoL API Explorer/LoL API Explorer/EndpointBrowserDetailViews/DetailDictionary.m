@@ -76,7 +76,7 @@
     } else {
         CGSize size = [[tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text sizeWithAttributes:@{NSFontAttributeName: [tableView cellForRowAtIndexPath:indexPath].detailTextLabel.font}];
         if (size.width > [tableView cellForRowAtIndexPath:indexPath].detailTextLabel.bounds.size.width) {
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text message:[tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text message:[[tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text stringByReplacingOccurrencesOfString:@"<br>" withString:@"\n"] preferredStyle:UIAlertControllerStyleAlert];
             [alert addAction:[UIAlertAction actionWithTitle:@"Dismiss" style:UIAlertActionStyleCancel handler:nil]];
             [self presentViewController:alert animated:YES completion:nil];
         }
