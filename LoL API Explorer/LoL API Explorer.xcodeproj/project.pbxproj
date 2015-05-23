@@ -23,6 +23,7 @@
 		17DC949B1B11274C003AB0A3 /* ILA_FeaturedGames.m in Sources */ = {isa = PBXBuildFile; fileRef = 17DC949A1B11274C003AB0A3 /* ILA_FeaturedGames.m */; };
 		17DC949E1B112975003AB0A3 /* ILA_Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 17DC949D1B112975003AB0A3 /* ILA_Game.m */; };
 		17DC94A11B112B4E003AB0A3 /* ILA_League.m in Sources */ = {isa = PBXBuildFile; fileRef = 17DC94A01B112B4E003AB0A3 /* ILA_League.m */; };
+		17DC94C61B113B5C003AB0A3 /* ILA_StaticData.m in Sources */ = {isa = PBXBuildFile; fileRef = 17DC94C51B113B5C003AB0A3 /* ILA_StaticData.m */; };
 		17E52B331B1119A400E60DB6 /* ILA_CurrentGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E52B321B1119A400E60DB6 /* ILA_CurrentGame.m */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,8 @@
 		17DC949D1B112975003AB0A3 /* ILA_Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ILA_Game.m; path = "iOS LoL API/ILA_Game.m"; sourceTree = "<group>"; };
 		17DC949F1B112B4E003AB0A3 /* ILA_League.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ILA_League.h; path = "iOS LoL API/ILA_League.h"; sourceTree = "<group>"; };
 		17DC94A01B112B4E003AB0A3 /* ILA_League.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ILA_League.m; path = "iOS LoL API/ILA_League.m"; sourceTree = "<group>"; };
+		17DC94C41B113B5C003AB0A3 /* ILA_StaticData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ILA_StaticData.h; path = "iOS LoL API/ILA_StaticData.h"; sourceTree = "<group>"; };
+		17DC94C51B113B5C003AB0A3 /* ILA_StaticData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ILA_StaticData.m; path = "iOS LoL API/ILA_StaticData.m"; sourceTree = "<group>"; };
 		17E52B311B1119A400E60DB6 /* ILA_CurrentGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ILA_CurrentGame.h; path = "iOS LoL API/ILA_CurrentGame.h"; sourceTree = "<group>"; };
 		17E52B321B1119A400E60DB6 /* ILA_CurrentGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ILA_CurrentGame.m; path = "iOS LoL API/ILA_CurrentGame.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,7 +121,6 @@
 				177E67611B0E43EA009F665D /* EndpointBrowser.h */,
 				177E67621B0E43EA009F665D /* EndpointBrowser.m */,
 				177E67661B0E535E009F665D /* EndpointBrowserDetailViews */,
-				177E675F1B0E43C6009F665D /* Endpoints.plist */,
 				17D2E7A61A6EA56E002ACBB3 /* iOS LoL API */,
 				177E67641B0E5022009F665D /* Images.xcassets */,
 				1778707E1A6E9C5700C94D22 /* Supporting Files */,
@@ -184,6 +186,9 @@
 				17DC949D1B112975003AB0A3 /* ILA_Game.m */,
 				17DC949F1B112B4E003AB0A3 /* ILA_League.h */,
 				17DC94A01B112B4E003AB0A3 /* ILA_League.m */,
+				17DC94C41B113B5C003AB0A3 /* ILA_StaticData.h */,
+				17DC94C51B113B5C003AB0A3 /* ILA_StaticData.m */,
+				177E675F1B0E43C6009F665D /* Endpoints.plist */,
 				177E67701B0E7C2F009F665D /* Regional Endpoints.plist */,
 			);
 			name = "iOS LoL API";
@@ -290,6 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17DC94C61B113B5C003AB0A3 /* ILA_StaticData.m in Sources */,
 				177870841A6E9C5700C94D22 /* AppDelegate.m in Sources */,
 				177870811A6E9C5700C94D22 /* main.m in Sources */,
 				177E676F1B0E53A3009F665D /* DetailDictionary.m in Sources */,
