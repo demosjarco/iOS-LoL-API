@@ -49,6 +49,14 @@
         cell.accessoryType = UITableViewCellAccessoryNone;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
+    @autoreleasepool {
+        CGSize size = [cell.detailTextLabel.text sizeWithAttributes:@{NSFontAttributeName: cell.detailTextLabel.font}];
+        if (size.width > cell.detailTextLabel.bounds.size.width) {
+            cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+        } else {
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+    }
     
     return cell;
 }
