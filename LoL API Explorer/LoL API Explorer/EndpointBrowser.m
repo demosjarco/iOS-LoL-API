@@ -128,7 +128,7 @@
                     @autoreleasepool {
                         UIAlertController *alert = [UIAlertController alertControllerWithTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text message:[tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text preferredStyle:UIAlertControllerStyleAlert];
                         [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-                            textField.placeholder = @"ID of the summonder to current game info.";
+                            textField.placeholder = @"ID of the summoner to current game info.";
                             textField.keyboardType = UIKeyboardTypeNumberPad;
                         }];
                         [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
@@ -176,7 +176,7 @@
                     @autoreleasepool {
                         UIAlertController *alert = [UIAlertController alertControllerWithTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text message:[tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text preferredStyle:UIAlertControllerStyleAlert];
                         [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-                            textField.placeholder = @"ID of the summonder to recent games.";
+                            textField.placeholder = @"ID of the summoner to recent games.";
                             textField.keyboardType = UIKeyboardTypeNumberPad;
                         }];
                         [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
@@ -186,6 +186,310 @@
                                     DetailDictionary *detail = [[DetailDictionary alloc] init];
                                     detail.title = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
                                     detail.content = recentGames;
+                                    [self.navigationController pushViewController:detail animated:YES];
+                                }
+                            }];
+                        }]];
+                        [self presentViewController:alert animated:YES completion:nil];
+                    }
+                    break;
+            }
+            break;
+            
+        case 4:
+            switch (indexPath.row) {
+                case 0:
+                    @autoreleasepool {
+                        UIAlertController *alert = [UIAlertController alertControllerWithTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text message:[tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text preferredStyle:UIAlertControllerStyleAlert];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the summoner.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the summoner.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the summoner.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the summoner.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the summoner.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the summoner.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the summoner.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the summoner.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the summoner.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the summoner.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+                        [alert addAction:[UIAlertAction actionWithTitle:@"Submit" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                            @autoreleasepool {
+                                NSMutableArray *summonerIDarray = [[NSMutableArray alloc] init];
+                                for (UITextField *textField in alert.textFields) {
+                                    if (textField.text.length > 0) {
+                                        [summonerIDarray addObject:textField.text];
+                                    }
+                                }
+                                [ILA_League getLeagueForSummonerIDs:[NSArray arrayWithArray:summonerIDarray] :^(NSDictionary *summonerMap) {
+                                    @autoreleasepool {
+                                        DetailDictionary *detail = [[DetailDictionary alloc] init];
+                                        detail.title = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
+                                        detail.content = summonerMap;
+                                        [self.navigationController pushViewController:detail animated:YES];
+                                    }
+                                }];
+                            }
+                        }]];
+                        [self presentViewController:alert animated:YES completion:nil];
+                    }
+                    break;
+                    
+                case 1:
+                    @autoreleasepool {
+                        UIAlertController *alert = [UIAlertController alertControllerWithTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text message:[tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text preferredStyle:UIAlertControllerStyleAlert];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the summoner.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the summoner.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the summoner.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the summoner.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the summoner.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the summoner.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the summoner.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the summoner.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the summoner.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the summoner.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+                        [alert addAction:[UIAlertAction actionWithTitle:@"Submit" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                            @autoreleasepool {
+                                NSMutableArray *summonerIDarray = [[NSMutableArray alloc] init];
+                                for (UITextField *textField in alert.textFields) {
+                                    if (textField.text.length > 0) {
+                                        [summonerIDarray addObject:textField.text];
+                                    }
+                                }
+                                [ILA_League getLeagueEntryForSummonerIDs:[NSArray arrayWithArray:summonerIDarray] :^(NSDictionary *summonerMap) {
+                                    @autoreleasepool {
+                                        DetailDictionary *detail = [[DetailDictionary alloc] init];
+                                        detail.title = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
+                                        detail.content = summonerMap;
+                                        [self.navigationController pushViewController:detail animated:YES];
+                                    }
+                                }];
+                            }
+                        }]];
+                        [self presentViewController:alert animated:YES completion:nil];
+                    }
+                    break;
+                    
+                case 2:
+                    @autoreleasepool {
+                        UIAlertController *alert = [UIAlertController alertControllerWithTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text message:[tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text preferredStyle:UIAlertControllerStyleAlert];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the team.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the team.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the team.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the team.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the team.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the team.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the team.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the team.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the team.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the team.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+                        [alert addAction:[UIAlertAction actionWithTitle:@"Submit" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                            @autoreleasepool {
+                                NSMutableArray *teamIDarray = [[NSMutableArray alloc] init];
+                                for (UITextField *textField in alert.textFields) {
+                                    if (textField.text.length > 0) {
+                                        [teamIDarray addObject:textField.text];
+                                    }
+                                }
+                                [ILA_League getLeagueTeamForSummonerIDs:teamIDarray :^(NSDictionary *teamMap) {
+                                    @autoreleasepool {
+                                        DetailDictionary *detail = [[DetailDictionary alloc] init];
+                                        detail.title = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
+                                        detail.content = teamMap;
+                                        [self.navigationController pushViewController:detail animated:YES];
+                                    }
+                                }];
+                            }
+                        }]];
+                        [self presentViewController:alert animated:YES completion:nil];
+                    }
+                    break;
+                    
+                case 3:
+                    @autoreleasepool {
+                        UIAlertController *alert = [UIAlertController alertControllerWithTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text message:[tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text preferredStyle:UIAlertControllerStyleAlert];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the team.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the team.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the team.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the team.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the team.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the team.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the team.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the team.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the team.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the team.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+                        [alert addAction:[UIAlertAction actionWithTitle:@"Submit" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                            @autoreleasepool {
+                                NSMutableArray *teamIDarray = [[NSMutableArray alloc] init];
+                                for (UITextField *textField in alert.textFields) {
+                                    if (textField.text.length > 0) {
+                                        [teamIDarray addObject:textField.text];
+                                    }
+                                }
+                                [ILA_League getLeagueTeamEntryForSummonerIDs:teamIDarray :^(NSDictionary *teamMap) {
+                                    @autoreleasepool {
+                                        DetailDictionary *detail = [[DetailDictionary alloc] init];
+                                        detail.title = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
+                                        detail.content = teamMap;
+                                        [self.navigationController pushViewController:detail animated:YES];
+                                    }
+                                }];
+                            }
+                        }]];
+                        [self presentViewController:alert animated:YES completion:nil];
+                    }
+                    break;
+                    
+                case 4:
+                    @autoreleasepool {
+                        UIAlertController *alert = [UIAlertController alertControllerWithTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text message:[tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text preferredStyle:UIAlertControllerStyleAlert];
+                        [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+                        [alert addAction:[UIAlertAction actionWithTitle:@"Submit" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                            [ILA_League getLeagueChallenger:@"RANKED_SOLO_5x5" :^(NSDictionary *challengerMap) {
+                                @autoreleasepool {
+                                    DetailDictionary *detail = [[DetailDictionary alloc] init];
+                                    detail.title = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
+                                    detail.content = challengerMap;
+                                    [self.navigationController pushViewController:detail animated:YES];
+                                }
+                            }];
+                        }]];
+                        [self presentViewController:alert animated:YES completion:nil];
+                    }
+                    break;
+                    
+                case 5:
+                    @autoreleasepool {
+                        UIAlertController *alert = [UIAlertController alertControllerWithTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text message:[tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text preferredStyle:UIAlertControllerStyleAlert];
+                        [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+                        [alert addAction:[UIAlertAction actionWithTitle:@"Submit" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                            [ILA_League getLeagueMaster:@"RANKED_SOLO_5x5" :^(NSDictionary *masterMap) {
+                                @autoreleasepool {
+                                    DetailDictionary *detail = [[DetailDictionary alloc] init];
+                                    detail.title = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
+                                    detail.content = masterMap;
                                     [self.navigationController pushViewController:detail animated:YES];
                                 }
                             }];
