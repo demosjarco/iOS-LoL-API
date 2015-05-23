@@ -170,6 +170,32 @@
             }
             break;
             
+        case 3:
+            switch (indexPath.row) {
+                case 0:
+                    @autoreleasepool {
+                        UIAlertController *alert = [UIAlertController alertControllerWithTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text message:[tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text preferredStyle:UIAlertControllerStyleAlert];
+                        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                            textField.placeholder = @"ID of the summonder to recent games.";
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                        }];
+                        [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+                        [alert addAction:[UIAlertAction actionWithTitle:@"Submit" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                            [ILA_Game getRecentGamesOfSummoner:[alert.textFields[0] text].intValue :^(NSDictionary *recentGames) {
+                                @autoreleasepool {
+                                    DetailDictionary *detail = [[DetailDictionary alloc] init];
+                                    detail.title = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
+                                    detail.content = recentGames;
+                                    [self.navigationController pushViewController:detail animated:YES];
+                                }
+                            }];
+                        }]];
+                        [self presentViewController:alert animated:YES completion:nil];
+                    }
+                    break;
+            }
+            break;
+            
         default:
             break;
     }

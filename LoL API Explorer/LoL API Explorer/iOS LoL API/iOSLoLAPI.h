@@ -12,5 +12,6 @@
 #import "ILA_Champion.h"
 #import "ILA_CurrentGame.h"
 #import "ILA_FeaturedGames.h"
+#import "ILA_Game.h"
 
 #endif
