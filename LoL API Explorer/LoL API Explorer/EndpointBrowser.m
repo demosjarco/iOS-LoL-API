@@ -148,6 +148,28 @@
             }
             break;
             
+        case 2:
+            switch (indexPath.row) {
+                case 0:
+                    @autoreleasepool {
+                        UIAlertController *alert = [UIAlertController alertControllerWithTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text message:[tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text preferredStyle:UIAlertControllerStyleAlert];
+                        [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+                        [alert addAction:[UIAlertAction actionWithTitle:@"Submit" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                            [ILA_FeaturedGames getFeaturedGames:^(NSDictionary *featuredGames) {
+                                @autoreleasepool {
+                                    DetailDictionary *detail = [[DetailDictionary alloc] init];
+                                    detail.title = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
+                                    detail.content = featuredGames;
+                                    [self.navigationController pushViewController:detail animated:YES];
+                                }
+                            }];
+                        }]];
+                        [self presentViewController:alert animated:YES completion:nil];
+                    }
+                    break;
+            }
+            break;
+            
         default:
             break;
     }

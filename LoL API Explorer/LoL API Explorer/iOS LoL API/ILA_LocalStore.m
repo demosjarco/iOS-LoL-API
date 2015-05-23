@@ -13,7 +13,7 @@
 + (void)saveCacheOf:(id)json withName:(NSString *)fileName inFolder:(NSString *)folder :(void (^)(BOOL))completionBlock {
     @autoreleasepool {
         NSString *filePath = [[[[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"Riot_API_Cache"] stringByAppendingPathComponent:folder] stringByAppendingPathComponent:fileName] stringByAppendingPathExtension:@"plist"];
-        NSLog(@"%@", filePath);
+        // NSLog(@"%@", filePath);
         
         // Create directory if needed
         @autoreleasepool {
