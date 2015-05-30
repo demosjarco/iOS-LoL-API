@@ -31,10 +31,10 @@ typedef enum {
 
 + (void)getChampionList:(champData)champDataSelected :(void (^)(NSDictionary *championList))completionBlock;
 + (void)getChampionInfoFor:(int)champId withData:(champData)champDataSelected :(void (^)(NSDictionary *championList))completionBlock;
-+ (void) :(void (^)())completionBlock;
-+ (void) :(void (^)())completionBlock;
-+ (void) :(void (^)())completionBlock;
-+ (void) :(void (^)())completionBlock;
++ (void)getItemList:(NSString *)itemListDataSelected :(void (^)(NSDictionary *itemList))completionBlock;
++ (void)getItemInfoFor:(int)itemId withData:(NSString *)itemListDataSelected :(void (^)(NSDictionary *itemList))completionBlock;
++ (void)getLocalizedStringForPlaceHolderText:(NSString *)originalText :(void (^)(NSString *localizedText))completionBlock;
++ (void)getRegionValidLocales :(void (^)(NSArray *validLocales))completionBlock;
 + (void) :(void (^)())completionBlock;
 + (void) :(void (^)())completionBlock;
 + (void) :(void (^)())completionBlock;
