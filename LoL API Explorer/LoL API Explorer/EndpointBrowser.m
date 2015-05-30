@@ -548,6 +548,26 @@
                     }
                     break;
                     
+                case 2:
+                    @autoreleasepool {
+                        UIAlertController *alert = [UIAlertController alertControllerWithTitle:[tableView cellForRowAtIndexPath:indexPath].textLabel.text message:[tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text preferredStyle:UIAlertControllerStyleAlert];
+                        [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+                        [alert addAction:[UIAlertAction actionWithTitle:@"Submit" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                            @autoreleasepool {
+                                champData temp = all;
+                                [ILA_StaticData getItemList:@"all" :^(NSDictionary *itemList) {
+                                    @autoreleasepool {
+                                        DetailDictionary *detail = [[DetailDictionary alloc] init];
+                                        detail.title = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
+                                        detail.content = itemList;
+                                        [self.navigationController pushViewController:detail animated:YES];
+                                    }
+                                }];
+                            }
+                        }]];
+                        [self presentViewController:alert animated:YES completion:nil];
+                    }
+                    break;
             }
             break;
             
