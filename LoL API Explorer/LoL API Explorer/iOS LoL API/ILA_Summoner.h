@@ -13,10 +13,6 @@
 @interface ILA_Summoner : NSObject
 
 + (void)getSummonersForSummonerNames:(NSArray *)summonerNames :(void (^)(NSDictionary *summonerMap))completionBlock :(void (^)(NSInteger httpResponseCode))errorBlock;
-// + (void) :(void (^)())completionBlock;
-// + (void) :(void (^)())completionBlock;
-// + (void) :(void (^)())completionBlock;
-// + (void) :(void (^)())completionBlock;
-// + (void) :(void (^)())completionBlock;
++ (void)getSummonersForSummonerIds:(NSArray *)summonerIds :(void (^)(NSDictionary *summonerMap))completionBlock :(void (^)(NSInteger httpResponseCode))errorBlock;
 
 @end
