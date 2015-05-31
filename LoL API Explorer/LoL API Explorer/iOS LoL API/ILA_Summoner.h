@@ -10,7 +10,7 @@
 
 @interface ILA_Summoner : NSObject
 
-+ (void)getSummonersForSummonerNames:(NSArray *)summonerNames :(void (^)())completionBlock;
++ (void)getSummonersForSummonerNames:(NSArray *)summonerNames :(void (^)(NSDictionary *summonerMap))completionBlock;
 // + (void) :(void (^)())completionBlock;
 // + (void) :(void (^)())completionBlock;
 // + (void) :(void (^)())completionBlock;

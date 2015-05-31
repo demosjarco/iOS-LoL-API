@@ -28,7 +28,7 @@
  @note A 404 error from this can also mean the summoner is not currently ranked
  @warning This method takes a max of 40 summoners. If you provide more than 40 in @p summonerNames it will only process the first 40.
  */
-+ (void)getSummonersForSummonerNames:(NSArray *)summonerNames :(void (^)())completionBlock {
++ (void)getSummonersForSummonerNames:(NSArray *)summonerNames :(void (^)(NSDictionary *))completionBlock {
     // Trim array of summonerIds to 40.
     NSMutableArray *trimmedSummonerNames;
     if (summonerNames.count > 40) {
