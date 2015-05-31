@@ -68,6 +68,6 @@
 + (void)getRegionCode :(void (^)(NSString *regionCode))completionBlock;
 + (void)getRegionPlatformID :(void (^)(NSString *regionPlatformID))completionBlock;
 
-+ (void)connectToServer:(NSURL *)url withFilename:(NSString *)cacheFilename inFolder:(NSString *)folder :(void (^)(id json, BOOL fromCache))completionBlock;
++ (void)connectToServer:(NSURL *)url withFilename:(NSString *)cacheFilename inFolder:(NSString *)folder :(void (^)(id json, NSInteger responseCode, BOOL fromCache))completionBlock;
 
 @end

@@ -37,7 +37,7 @@
     }];
 }
 
-+ (void)connectToServer:(NSURL *)url withFilename:(NSString *)cacheFilename inFolder:(NSString *)folder :(void (^)(id, BOOL))completionBlock {
++ (void)connectToServer:(NSURL *)url withFilename:(NSString *)cacheFilename inFolder:(NSString *)folder :(void (^)(id, NSInteger, BOOL))completionBlock {
     [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:url] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         if (connectionError) {
             // Error Log
@@ -46,9 +46,9 @@
             // Cache
             [ILA_LocalStore getCacheOfFilename:cacheFilename inFolder:folder :^(NSDictionary *dictJson, NSArray *arrJson) {
                 if (dictJson) {
-                    completionBlock(dictJson, YES);
+                    completionBlock(dictJson, 0, YES);
                 } else if (arrJson) {
-                    completionBlock(arrJson, YES);
+                    completionBlock(arrJson, 0, YES);
                 }
             }];
         } else {
@@ -63,7 +63,7 @@
                         NSLog(@"JSON Parse error (%@) when reading file from %@", jsonError, url.absoluteString);
                     } else {
                         [ILA_LocalStore saveCacheOf:json withName:cacheFilename inFolder:folder :^(BOOL succeeded) {
-                            completionBlock(json, NO);
+                            completionBlock(json, correctResponse.statusCode, NO);
                         }];
                     }
                 }
@@ -74,9 +74,9 @@
                 // Cache
                 [ILA_LocalStore getCacheOfFilename:cacheFilename inFolder:folder :^(NSDictionary *dictJson, NSArray *arrJson) {
                     if (dictJson) {
-                        completionBlock(dictJson, YES);
+                        completionBlock(dictJson, correctResponse.statusCode, YES);
                     } else if (arrJson) {
-                        completionBlock(arrJson, YES);
+                        completionBlock(arrJson, correctResponse.statusCode, YES);
                     }
                 }];
             }
