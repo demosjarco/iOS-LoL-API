@@ -28,7 +28,7 @@
  @note A 404 error from this can also mean the summoner is not currently ranked
  @warning This method takes a max of 40 summoners. If you provide more than 40 in @p summonerNames it will only process the first 40.
  */
-+ (void)getSummonersForSummonerNames:(NSArray *)summonerNames :(void (^)(NSDictionary *))completionBlock {
++ (void)getSummonersForSummonerNames:(NSArray *)summonerNames :(void (^)(long, NSString *, int, NSDate *, long))completionBlock :(void (^)(NSInteger))errorBlock {
     // Trim array of summonerIds to 40.
     NSMutableArray *trimmedSummonerNames;
     if (summonerNames.count > 40) {
@@ -58,7 +58,11 @@
             [ILA_Setup getAPIkey:^(NSString *apiKey) {
                 [components setQuery:[NSString stringWithFormat:@"api_key=%@", apiKey]];
                 [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"summonerNames_%@", [[standardizedSummonerNames valueForKey:@"description"] componentsJoinedByString:@"-"]] inFolder:@"summoner" :^(id json, NSInteger responseCode, BOOL fromCache) {
-                    completionBlock(json);
+                    if (responseCode == SUCCEEDED) {
+                        completionBlock([json[@"id"] longValue], json[@"name"], [json[@"profileIconId"] intValue], [NSDate dateWithTimeIntervalSince1970:[json[@"revisionDate"] longValue] / 1000], [json[@"summonerLevel"] longValue]);
+                    } else {
+                        errorBlock(responseCode);
+                    }
                 }];
             }];
         }];
