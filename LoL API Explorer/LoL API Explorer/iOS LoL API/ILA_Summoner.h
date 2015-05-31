@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+#import "ILA_SummonerDto.h"
+
 @interface ILA_Summoner : NSObject
 
-+ (void)getSummonersForSummonerNames:(NSArray *)summonerNames :(void (^)(long summonerId, NSString *summonerName, int profileIconId, NSDate *revisionDate, long summonerLevel))completionBlock :(void (^)(NSInteger httpResponseCode))errorBlock;
++ (void)getSummonersForSummonerNames:(NSArray *)summonerNames :(void (^)(NSDictionary *summonerMap))completionBlock :(void (^)(NSInteger httpResponseCode))errorBlock;
 // + (void) :(void (^)())completionBlock;
 // + (void) :(void (^)())completionBlock;
 // + (void) :(void (^)())completionBlock;

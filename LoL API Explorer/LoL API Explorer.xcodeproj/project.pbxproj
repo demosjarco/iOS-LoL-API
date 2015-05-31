@@ -96,6 +96,7 @@
 		17DC94C51B113B5C003AB0A3 /* ILA_StaticData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ILA_StaticData.m; path = "iOS LoL API/ILA_StaticData.m"; sourceTree = "<group>"; };
 		17E52B311B1119A400E60DB6 /* ILA_CurrentGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ILA_CurrentGame.h; path = "iOS LoL API/ILA_CurrentGame.h"; sourceTree = "<group>"; };
 		17E52B321B1119A400E60DB6 /* ILA_CurrentGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ILA_CurrentGame.m; path = "iOS LoL API/ILA_CurrentGame.m"; sourceTree = "<group>"; };
+		17FE89961B1B9B87003A203C /* ILA_SummonerDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ILA_SummonerDto.h; path = "iOS LoL API/Summoner Subclasses/ILA_SummonerDto.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,12 +222,21 @@
 				17D24E101B1B560800AD06FE /* ILA_Stats.m */,
 				17D24E121B1B561600AD06FE /* ILA_Summoner.h */,
 				17D24E131B1B561600AD06FE /* ILA_Summoner.m */,
+				17FE898E1B1B9A4B003A203C /* Summoner Subclasses */,
 				17D24E151B1B562600AD06FE /* ILA_Team.h */,
 				17D24E161B1B562600AD06FE /* ILA_Team.m */,
 				177E675F1B0E43C6009F665D /* Endpoints.plist */,
 				177E67701B0E7C2F009F665D /* Regional Endpoints.plist */,
 			);
 			name = "iOS LoL API";
+			sourceTree = "<group>";
+		};
+		17FE898E1B1B9A4B003A203C /* Summoner Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				17FE89961B1B9B87003A203C /* ILA_SummonerDto.h */,
+			);
+			name = "Summoner Subclasses";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

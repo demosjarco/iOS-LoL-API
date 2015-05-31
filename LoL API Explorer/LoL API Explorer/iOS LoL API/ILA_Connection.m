@@ -70,6 +70,9 @@
             } else {
                 // Error Log
                 NSLog(@"Error (%ld) while retrieving file from %@", (long)correctResponse.statusCode, url.absoluteString);
+                if (correctResponse.statusCode == NO_DATA_FOUND) {
+                    completionBlock(nil, correctResponse.statusCode, NO);
+                }
                 
                 // Cache
                 [ILA_LocalStore getCacheOfFilename:cacheFilename inFolder:folder :^(NSDictionary *dictJson, NSArray *arrJson) {
