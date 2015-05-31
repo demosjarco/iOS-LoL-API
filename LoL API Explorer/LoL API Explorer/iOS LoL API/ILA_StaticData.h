@@ -36,13 +36,13 @@ typedef enum {
 + (void)getLocalizedStringForPlaceHolderText:(NSString *)originalText :(void (^)(NSString *localizedText))completionBlock;
 + (void)getRegionValidLocales :(void (^)(NSArray *validLocales))completionBlock;
 + (void)getMapData :(void (^)(NSDictionary *mapData))completionBlock;
-+ (void)getMasteryList:(NSString *)masteryListData :(void (^)(NSDictionary *masteryList))completionBlock;
-+ (void)getMasteryInfoFor:(int)masteryId withData:(NSString *)masteryListData :(void (^)(NSDictionary *masteryInfo))completionBlock;
-+ (void) :(void (^)())completionBlock;
-+ (void) :(void (^)())completionBlock;
-+ (void) :(void (^)())completionBlock;
-+ (void) :(void (^)())completionBlock;
-+ (void) :(void (^)())completionBlock;
-+ (void) :(void (^)())completionBlock;
++ (void)getMasteryList:(NSString *)masteryListDataSelected :(void (^)(NSDictionary *masteryList))completionBlock;
++ (void)getMasteryInfoFor:(int)masteryId withData:(NSString *)masteryListDataSelected :(void (^)(NSDictionary *masteryInfo))completionBlock;
++ (void)getRealmInfo :(void (^)(NSDictionary *realmInfo))completionBlock;
++ (void)getRuneList:(NSString *)runeListDataSelected :(void (^)(NSDictionary *runeList))completionBlock;
++ (void)getRuneInfoFor:(int)runeId withData:(NSString *)runeListDataSelected :(void (^)(NSDictionary *masteryInfo))completionBlock;
++ (void)getSummonerSpellList:(NSString *)summonerSpellDataSelected :(void (^)(NSDictionary *summonerSpellList))completionBlock;
++ (void)getSummonerSpellInfo:(int)summonerSpellId withData:(NSString *)summonerSpellDataSelected :(void (^)(NSDictionary *summonerSpellInfo))completionBlock;
++ (void)getLeagueVersion :(void (^)(NSArray *versionList))completionBlock;
 
 @end

@@ -338,7 +338,7 @@
 /**
  @note Requests to this API will not be counted in your Rate Limit.
  */
-+ (void)getMasteryList:(NSString *)masteryListData :(void (^)(NSDictionary *))completionBlock {
++ (void)getMasteryList:(NSString *)masteryListDataSelected :(void (^)(NSDictionary *))completionBlock {
     NSURLComponents *components = [NSURLComponents new];
     [components setScheme:@"https"];
     [ILA_Connection getRegionHost:^(NSString *host) {
@@ -357,12 +357,12 @@
             [ILA_Setup getAPIkey:^(NSString *apiKey) {
                 [self optimalLocaleForRegion:^(BOOL optimalLocale) {
                     if (optimalLocale) {
-                        [components setQuery:[NSString stringWithFormat:@"locale=%@&masteryListData=%@&api_key=%@", [[NSLocale autoupdatingCurrentLocale] localeIdentifier], masteryListData, apiKey]];
+                        [components setQuery:[NSString stringWithFormat:@"locale=%@&masteryListData=%@&api_key=%@", [[NSLocale autoupdatingCurrentLocale] localeIdentifier], masteryListDataSelected, apiKey]];
                     } else {
-                        [components setQuery:[NSString stringWithFormat:@"masteryListData=%@&api_key=%@", masteryListData, apiKey]];
+                        [components setQuery:[NSString stringWithFormat:@"masteryListData=%@&api_key=%@", masteryListDataSelected, apiKey]];
                     }
                     
-                    [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"masteryList_%@", masteryListData] inFolder:@"staticData" :^(id json, BOOL fromCache) {
+                    [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"masteryList_%@", masteryListDataSelected] inFolder:@"staticData" :^(id json, BOOL fromCache) {
                         completionBlock(json);
                     }];
                 }];
@@ -374,7 +374,7 @@
 /**
  @note Requests to this API will not be counted in your Rate Limit.
  */
-+ (void)getMasteryInfoFor:(int)masteryId withData:(NSString *)masteryListData :(void (^)(NSDictionary *))completionBlock {
++ (void)getMasteryInfoFor:(int)masteryId withData:(NSString *)masteryListDataSelected :(void (^)(NSDictionary *))completionBlock {
     NSURLComponents *components = [NSURLComponents new];
     [components setScheme:@"https"];
     [ILA_Connection getRegionHost:^(NSString *host) {
@@ -393,12 +393,12 @@
             [ILA_Setup getAPIkey:^(NSString *apiKey) {
                 [self optimalLocaleForRegion:^(BOOL optimalLocale) {
                     if (optimalLocale) {
-                        [components setQuery:[NSString stringWithFormat:@"locale=%@&itemListData=%@&api_key=%@", [[NSLocale autoupdatingCurrentLocale] localeIdentifier], masteryListData, apiKey]];
+                        [components setQuery:[NSString stringWithFormat:@"locale=%@&masteryListData=%@&api_key=%@", [[NSLocale autoupdatingCurrentLocale] localeIdentifier], masteryListDataSelected, apiKey]];
                     } else {
-                        [components setQuery:[NSString stringWithFormat:@"masteryListData=%@&api_key=%@", masteryListData, apiKey]];
+                        [components setQuery:[NSString stringWithFormat:@"masteryListData=%@&api_key=%@", masteryListDataSelected, apiKey]];
                     }
                     
-                    [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"itemInfo_%d_%@", masteryId, masteryListData] inFolder:@"staticData" :^(id json, BOOL fromCache) {
+                    [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"masteryInfo_%d_%@", masteryId, masteryListDataSelected] inFolder:@"staticData" :^(id json, BOOL fromCache) {
                         completionBlock(json);
                     }];
                 }];
@@ -410,25 +410,203 @@
 /**
  @note Requests to this API will not be counted in your Rate Limit.
  */
++ (void)getRealmInfo:(void (^)(NSDictionary *))completionBlock {
+    NSURLComponents *components = [NSURLComponents new];
+    [components setScheme:@"https"];
+    [ILA_Connection getRegionHost:^(NSString *host) {
+        [components setHost:host];
+        
+        [ILA_Connection getRegionCode:^(NSString *regionCode) {
+            @autoreleasepool {
+                NSArray *endpoints = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Endpoints" ofType:@"plist"]];
+                NSDictionary *endpointSection = endpoints[5];
+                NSArray *subEndpoints = endpointSection[@"subEndpoints"];
+                NSDictionary *endpoint = subEndpoints[9];
+                
+                [components setPath:[endpoint[@"relativePath"] stringByReplacingOccurrencesOfString:@"{region}" withString:regionCode]];
+            }
+            
+            [ILA_Setup getAPIkey:^(NSString *apiKey) {
+                [components setQuery:[NSString stringWithFormat:@"api_key=%@", apiKey]];
+                [ILA_Connection connectToServer:[components URL] withFilename:@"realmInfo" inFolder:@"staticData" :^(id json, BOOL fromCache) {
+                    completionBlock(json);
+                }];
+            }];
+        }];
+    }];
+}
 
 /**
  @note Requests to this API will not be counted in your Rate Limit.
  */
++ (void)getRuneList:(NSString *)runeListDataSelected :(void (^)(NSDictionary *))completionBlock {
+    NSURLComponents *components = [NSURLComponents new];
+    [components setScheme:@"https"];
+    [ILA_Connection getRegionHost:^(NSString *host) {
+        [components setHost:host];
+        
+        [ILA_Connection getRegionCode:^(NSString *regionCode) {
+            @autoreleasepool {
+                NSArray *endpoints = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Endpoints" ofType:@"plist"]];
+                NSDictionary *endpointSection = endpoints[5];
+                NSArray *subEndpoints = endpointSection[@"subEndpoints"];
+                NSDictionary *endpoint = subEndpoints[10];
+                
+                [components setPath:[endpoint[@"relativePath"] stringByReplacingOccurrencesOfString:@"{region}" withString:regionCode]];
+            }
+            
+            [ILA_Setup getAPIkey:^(NSString *apiKey) {
+                [self optimalLocaleForRegion:^(BOOL optimalLocale) {
+                    if (optimalLocale) {
+                        [components setQuery:[NSString stringWithFormat:@"locale=%@&runeData=%@&api_key=%@", [[NSLocale autoupdatingCurrentLocale] localeIdentifier], runeListDataSelected, apiKey]];
+                    } else {
+                        [components setQuery:[NSString stringWithFormat:@"runeData=%@&api_key=%@", runeListDataSelected, apiKey]];
+                    }
+                    
+                    [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"runeList_%@", runeListDataSelected] inFolder:@"staticData" :^(id json, BOOL fromCache) {
+                        completionBlock(json);
+                    }];
+                }];
+            }];
+        }];
+    }];
+}
 
 /**
  @note Requests to this API will not be counted in your Rate Limit.
  */
++ (void)getRuneInfoFor:(int)runeId withData:(NSString *)runeListDataSelected :(void (^)(NSDictionary *))completionBlock {
+    NSURLComponents *components = [NSURLComponents new];
+    [components setScheme:@"https"];
+    [ILA_Connection getRegionHost:^(NSString *host) {
+        [components setHost:host];
+        
+        [ILA_Connection getRegionCode:^(NSString *regionCode) {
+            @autoreleasepool {
+                NSArray *endpoints = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Endpoints" ofType:@"plist"]];
+                NSDictionary *endpointSection = endpoints[5];
+                NSArray *subEndpoints = endpointSection[@"subEndpoints"];
+                NSDictionary *endpoint = subEndpoints[11];
+                
+                [components setPath:[[endpoint[@"relativePath"] stringByReplacingOccurrencesOfString:@"{region}" withString:regionCode] stringByReplacingOccurrencesOfString:@"{id}" withString:[NSString stringWithFormat:@"%d", runeId]]];
+            }
+            
+            [ILA_Setup getAPIkey:^(NSString *apiKey) {
+                [self optimalLocaleForRegion:^(BOOL optimalLocale) {
+                    if (optimalLocale) {
+                        [components setQuery:[NSString stringWithFormat:@"locale=%@&runeData=%@&api_key=%@", [[NSLocale autoupdatingCurrentLocale] localeIdentifier], runeListDataSelected, apiKey]];
+                    } else {
+                        [components setQuery:[NSString stringWithFormat:@"runeData=%@&api_key=%@", runeListDataSelected, apiKey]];
+                    }
+                    
+                    [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"runeInfo_%d_%@", runeId, runeListDataSelected] inFolder:@"staticData" :^(id json, BOOL fromCache) {
+                        completionBlock(json);
+                    }];
+                }];
+            }];
+        }];
+    }];
+}
 
 /**
  @note Requests to this API will not be counted in your Rate Limit.
  */
++ (void)getSummonerSpellList:(NSString *)summonerSpellDataSelected :(void (^)(NSDictionary *))completionBlock {
+    NSURLComponents *components = [NSURLComponents new];
+    [components setScheme:@"https"];
+    [ILA_Connection getRegionHost:^(NSString *host) {
+        [components setHost:host];
+        
+        [ILA_Connection getRegionCode:^(NSString *regionCode) {
+            @autoreleasepool {
+                NSArray *endpoints = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Endpoints" ofType:@"plist"]];
+                NSDictionary *endpointSection = endpoints[5];
+                NSArray *subEndpoints = endpointSection[@"subEndpoints"];
+                NSDictionary *endpoint = subEndpoints[12];
+                
+                [components setPath:[endpoint[@"relativePath"] stringByReplacingOccurrencesOfString:@"{region}" withString:regionCode]];
+            }
+            
+            [ILA_Setup getAPIkey:^(NSString *apiKey) {
+                [self optimalLocaleForRegion:^(BOOL optimalLocale) {
+                    if (optimalLocale) {
+                        [components setQuery:[NSString stringWithFormat:@"locale=%@&spellData=%@&api_key=%@", [[NSLocale autoupdatingCurrentLocale] localeIdentifier], summonerSpellDataSelected, apiKey]];
+                    } else {
+                        [components setQuery:[NSString stringWithFormat:@"spellData=%@&api_key=%@", summonerSpellDataSelected, apiKey]];
+                    }
+                    
+                    [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"summonerSpellList_%@", summonerSpellDataSelected] inFolder:@"staticData" :^(id json, BOOL fromCache) {
+                        completionBlock(json);
+                    }];
+                }];
+            }];
+        }];
+    }];
+}
 
 /**
  @note Requests to this API will not be counted in your Rate Limit.
  */
++ (void)getSummonerSpellInfo:(int)summonerSpellId withData:(NSString *)summonerSpellDataSelected :(void (^)(NSDictionary *))completionBlock {
+    NSURLComponents *components = [NSURLComponents new];
+    [components setScheme:@"https"];
+    [ILA_Connection getRegionHost:^(NSString *host) {
+        [components setHost:host];
+        
+        [ILA_Connection getRegionCode:^(NSString *regionCode) {
+            @autoreleasepool {
+                NSArray *endpoints = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Endpoints" ofType:@"plist"]];
+                NSDictionary *endpointSection = endpoints[5];
+                NSArray *subEndpoints = endpointSection[@"subEndpoints"];
+                NSDictionary *endpoint = subEndpoints[13];
+                
+                [components setPath:[[endpoint[@"relativePath"] stringByReplacingOccurrencesOfString:@"{region}" withString:regionCode] stringByReplacingOccurrencesOfString:@"{id}" withString:[NSString stringWithFormat:@"%d", summonerSpellId]]];
+            }
+            
+            [ILA_Setup getAPIkey:^(NSString *apiKey) {
+                [self optimalLocaleForRegion:^(BOOL optimalLocale) {
+                    if (optimalLocale) {
+                        [components setQuery:[NSString stringWithFormat:@"locale=%@&spellData=%@&api_key=%@", [[NSLocale autoupdatingCurrentLocale] localeIdentifier], summonerSpellDataSelected, apiKey]];
+                    } else {
+                        [components setQuery:[NSString stringWithFormat:@"spellData=%@&api_key=%@", summonerSpellDataSelected, apiKey]];
+                    }
+                    
+                    [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"summonerSpellInfo_%d_%@", summonerSpellId, summonerSpellDataSelected] inFolder:@"staticData" :^(id json, BOOL fromCache) {
+                        completionBlock(json);
+                    }];
+                }];
+            }];
+        }];
+    }];
+}
 
 /**
  @note Requests to this API will not be counted in your Rate Limit.
  */
++ (void)getLeagueVersion:(void (^)(NSArray *))completionBlock {
+    NSURLComponents *components = [NSURLComponents new];
+    [components setScheme:@"https"];
+    [ILA_Connection getRegionHost:^(NSString *host) {
+        [components setHost:host];
+        
+        [ILA_Connection getRegionCode:^(NSString *regionCode) {
+            @autoreleasepool {
+                NSArray *endpoints = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Endpoints" ofType:@"plist"]];
+                NSDictionary *endpointSection = endpoints[5];
+                NSArray *subEndpoints = endpointSection[@"subEndpoints"];
+                NSDictionary *endpoint = subEndpoints[14];
+                
+                [components setPath:[endpoint[@"relativePath"] stringByReplacingOccurrencesOfString:@"{region}" withString:regionCode]];
+            }
+            
+            [ILA_Setup getAPIkey:^(NSString *apiKey) {
+                [components setQuery:[NSString stringWithFormat:@"api_key=%@", apiKey]];
+                [ILA_Connection connectToServer:[components URL] withFilename:@"versions" inFolder:@"staticData" :^(id json, BOOL fromCache) {
+                    completionBlock(json);
+                }];
+            }];
+        }];
+    }];
+}
 
 @end
