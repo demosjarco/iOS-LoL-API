@@ -34,7 +34,7 @@
             
             [ILA_Setup getAPIkey:^(NSString *apiKey) {
                 [components setQuery:[NSString stringWithFormat:@"freeToPlay=%@&api_key=%@", onlyFreeToPlayChamps ? @"true" : @"false", apiKey]];
-                [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"allChamps_%@", onlyFreeToPlayChamps ? @"true" : @"false"] inFolder:@"champion" :^(id json, BOOL fromCache) {
+                [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"allChamps_%@", onlyFreeToPlayChamps ? @"true" : @"false"] inFolder:@"champion" :^(id json, NSInteger responseCode, BOOL fromCache) {
                     completionBlock(json[@"champions"]);
                 }];
             }];
@@ -60,7 +60,7 @@
             
             [ILA_Setup getAPIkey:^(NSString *apiKey) {
                 [components setQuery:[NSString stringWithFormat:@"api_key=%@", apiKey]];
-                [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"champ_%d", champID] inFolder:@"champion" :^(id json, BOOL fromCache) {
+                [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"champ_%d", champID] inFolder:@"champion" :^(id json, NSInteger responseCode, BOOL fromCache) {
                     completionBlock(json);
                 }];
             }];

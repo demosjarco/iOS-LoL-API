@@ -42,7 +42,7 @@
             
             [ILA_Setup getAPIkey:^(NSString *apiKey) {
                 [components setQuery:[NSString stringWithFormat:@"api_key=%@", apiKey]];
-                [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"league_%@", [[trimmedSummonerIds valueForKey:@"description"] componentsJoinedByString:@"-"]] inFolder:@"league" :^(id json, BOOL fromCache) {
+                [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"league_%@", [[trimmedSummonerIds valueForKey:@"description"] componentsJoinedByString:@"-"]] inFolder:@"league" :^(id json, NSInteger responseCode, BOOL fromCache) {
                     completionBlock(json);
                 }];
             }];
@@ -80,7 +80,7 @@
             
             [ILA_Setup getAPIkey:^(NSString *apiKey) {
                 [components setQuery:[NSString stringWithFormat:@"api_key=%@", apiKey]];
-                [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"leagueEntry_%@", [[trimmedSummonerIds valueForKey:@"description"] componentsJoinedByString:@"-"]] inFolder:@"league" :^(id json, BOOL fromCache) {
+                [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"leagueEntry_%@", [[trimmedSummonerIds valueForKey:@"description"] componentsJoinedByString:@"-"]] inFolder:@"league" :^(id json, NSInteger responseCode, BOOL fromCache) {
                     completionBlock(json);
                 }];
             }];
@@ -117,7 +117,7 @@
             
             [ILA_Setup getAPIkey:^(NSString *apiKey) {
                 [components setQuery:[NSString stringWithFormat:@"api_key=%@", apiKey]];
-                [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"leagueTeam_%@", [[trimmedTeamIds valueForKey:@"description"] componentsJoinedByString:@"-"]] inFolder:@"league" :^(id json, BOOL fromCache) {
+                [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"leagueTeam_%@", [[trimmedTeamIds valueForKey:@"description"] componentsJoinedByString:@"-"]] inFolder:@"league" :^(id json, NSInteger responseCode, BOOL fromCache) {
                     completionBlock(json);
                 }];
             }];
@@ -154,7 +154,7 @@
             
             [ILA_Setup getAPIkey:^(NSString *apiKey) {
                 [components setQuery:[NSString stringWithFormat:@"api_key=%@", apiKey]];
-                [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"leagueTeamEntry_%@", [[trimmedTeamIds valueForKey:@"description"] componentsJoinedByString:@"-"]] inFolder:@"league" :^(id json, BOOL fromCache) {
+                [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"leagueTeamEntry_%@", [[trimmedTeamIds valueForKey:@"description"] componentsJoinedByString:@"-"]] inFolder:@"league" :^(id json, NSInteger responseCode, BOOL fromCache) {
                     completionBlock(json);
                 }];
             }];
@@ -183,7 +183,7 @@
             
             [ILA_Setup getAPIkey:^(NSString *apiKey) {
                 [components setQuery:[NSString stringWithFormat:@"type=%@&api_key=%@", gameQueueType, apiKey]];
-                [ILA_Connection connectToServer:[components URL] withFilename:@"leagueChallenger" inFolder:@"league" :^(id json, BOOL fromCache) {
+                [ILA_Connection connectToServer:[components URL] withFilename:@"leagueChallenger" inFolder:@"league" :^(id json, NSInteger responseCode, BOOL fromCache) {
                     completionBlock(json);
                 }];
             }];
@@ -212,7 +212,7 @@
             
             [ILA_Setup getAPIkey:^(NSString *apiKey) {
                 [components setQuery:[NSString stringWithFormat:@"type=%@&api_key=%@", gameQueueType, apiKey]];
-                [ILA_Connection connectToServer:[components URL] withFilename:@"leagueMaster" inFolder:@"league" :^(id json, BOOL fromCache) {
+                [ILA_Connection connectToServer:[components URL] withFilename:@"leagueMaster" inFolder:@"league" :^(id json, NSInteger responseCode, BOOL fromCache) {
                     completionBlock(json);
                 }];
             }];

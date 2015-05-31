@@ -116,7 +116,7 @@
                         [components setQuery:[NSString stringWithFormat:@"champData=%@&api_key=%@", [self champDataString:champDataSelected], apiKey]];
                     }
                     
-                    [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"championList_%@", [self champDataString:champDataSelected]] inFolder:@"staticData" :^(id json, BOOL fromCache) {
+                    [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"championList_%@", [self champDataString:champDataSelected]] inFolder:@"staticData" :^(id json, NSInteger responseCode, BOOL fromCache) {
                         completionBlock(json);
                     }];
                 }];
@@ -152,7 +152,7 @@
                         [components setQuery:[NSString stringWithFormat:@"champData=%@&api_key=%@", [self champDataString:champDataSelected], apiKey]];
                     }
                     
-                    [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"championInfo_%d_%@", champId, [self champDataString:champDataSelected]] inFolder:@"staticData" :^(id json, BOOL fromCache) {
+                    [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"championInfo_%d_%@", champId, [self champDataString:champDataSelected]] inFolder:@"staticData" :^(id json, NSInteger responseCode, BOOL fromCache) {
                         completionBlock(json);
                     }];
                 }];
@@ -188,7 +188,7 @@
                         [components setQuery:[NSString stringWithFormat:@"itemListData=%@&api_key=%@", itemListDataSelected, apiKey]];
                     }
                     
-                    [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"itemList_%@", itemListDataSelected] inFolder:@"staticData" :^(id json, BOOL fromCache) {
+                    [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"itemList_%@", itemListDataSelected] inFolder:@"staticData" :^(id json, NSInteger responseCode, BOOL fromCache) {
                         completionBlock(json);
                     }];
                 }];
@@ -224,7 +224,7 @@
                         [components setQuery:[NSString stringWithFormat:@"itemListData=%@&api_key=%@", itemListDataSelected, apiKey]];
                     }
                     
-                    [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"itemInfo_%d_%@", itemId, itemListDataSelected] inFolder:@"staticData" :^(id json, BOOL fromCache) {
+                    [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"itemInfo_%d_%@", itemId, itemListDataSelected] inFolder:@"staticData" :^(id json, NSInteger responseCode, BOOL fromCache) {
                         completionBlock(json);
                     }];
                 }];
@@ -261,7 +261,7 @@
                         [components setQuery:[NSString stringWithFormat:@"api_key=%@", apiKey]];
                     }
                     
-                    [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"localizedStrings_%@", [[NSLocale autoupdatingCurrentLocale] localeIdentifier]] inFolder:@"staticData" :^(id json, BOOL fromCache) {
+                    [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"localizedStrings_%@", [[NSLocale autoupdatingCurrentLocale] localeIdentifier]] inFolder:@"staticData" :^(id json, NSInteger responseCode, BOOL fromCache) {
                         completionBlock(json);
                     }];
                 }];
@@ -291,7 +291,7 @@
             
             [ILA_Setup getAPIkey:^(NSString *apiKey) {
                 [components setQuery:[NSString stringWithFormat:@"api_key=%@", apiKey]];
-                [ILA_Connection connectToServer:[components URL] withFilename:@"localesForRegion" inFolder:@"staticData" :^(id json, BOOL fromCache) {
+                [ILA_Connection connectToServer:[components URL] withFilename:@"localesForRegion" inFolder:@"staticData" :^(id json, NSInteger responseCode, BOOL fromCache) {
                     completionBlock(json);
                 }];
             }];
@@ -326,7 +326,7 @@
                         [components setQuery:[NSString stringWithFormat:@"api_key=%@", apiKey]];
                     }
                     
-                    [ILA_Connection connectToServer:[components URL] withFilename:@"map" inFolder:@"staticData" :^(id json, BOOL fromCache) {
+                    [ILA_Connection connectToServer:[components URL] withFilename:@"map" inFolder:@"staticData" :^(id json, NSInteger responseCode, BOOL fromCache) {
                         completionBlock(json);
                     }];
                 }];
@@ -362,7 +362,7 @@
                         [components setQuery:[NSString stringWithFormat:@"masteryListData=%@&api_key=%@", masteryListDataSelected, apiKey]];
                     }
                     
-                    [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"masteryList_%@", masteryListDataSelected] inFolder:@"staticData" :^(id json, BOOL fromCache) {
+                    [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"masteryList_%@", masteryListDataSelected] inFolder:@"staticData" :^(id json, NSInteger responseCode, BOOL fromCache) {
                         completionBlock(json);
                     }];
                 }];
@@ -398,7 +398,7 @@
                         [components setQuery:[NSString stringWithFormat:@"masteryListData=%@&api_key=%@", masteryListDataSelected, apiKey]];
                     }
                     
-                    [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"masteryInfo_%d_%@", masteryId, masteryListDataSelected] inFolder:@"staticData" :^(id json, BOOL fromCache) {
+                    [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"masteryInfo_%d_%@", masteryId, masteryListDataSelected] inFolder:@"staticData" :^(id json, NSInteger responseCode, BOOL fromCache) {
                         completionBlock(json);
                     }];
                 }];
@@ -428,7 +428,7 @@
             
             [ILA_Setup getAPIkey:^(NSString *apiKey) {
                 [components setQuery:[NSString stringWithFormat:@"api_key=%@", apiKey]];
-                [ILA_Connection connectToServer:[components URL] withFilename:@"realmInfo" inFolder:@"staticData" :^(id json, BOOL fromCache) {
+                [ILA_Connection connectToServer:[components URL] withFilename:@"realmInfo" inFolder:@"staticData" :^(id json, NSInteger responseCode, BOOL fromCache) {
                     completionBlock(json);
                 }];
             }];
@@ -463,7 +463,7 @@
                         [components setQuery:[NSString stringWithFormat:@"runeData=%@&api_key=%@", runeListDataSelected, apiKey]];
                     }
                     
-                    [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"runeList_%@", runeListDataSelected] inFolder:@"staticData" :^(id json, BOOL fromCache) {
+                    [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"runeList_%@", runeListDataSelected] inFolder:@"staticData" :^(id json, NSInteger responseCode, BOOL fromCache) {
                         completionBlock(json);
                     }];
                 }];
@@ -499,7 +499,7 @@
                         [components setQuery:[NSString stringWithFormat:@"runeData=%@&api_key=%@", runeListDataSelected, apiKey]];
                     }
                     
-                    [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"runeInfo_%d_%@", runeId, runeListDataSelected] inFolder:@"staticData" :^(id json, BOOL fromCache) {
+                    [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"runeInfo_%d_%@", runeId, runeListDataSelected] inFolder:@"staticData" :^(id json, NSInteger responseCode, BOOL fromCache) {
                         completionBlock(json);
                     }];
                 }];
@@ -535,7 +535,7 @@
                         [components setQuery:[NSString stringWithFormat:@"spellData=%@&api_key=%@", summonerSpellDataSelected, apiKey]];
                     }
                     
-                    [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"summonerSpellList_%@", summonerSpellDataSelected] inFolder:@"staticData" :^(id json, BOOL fromCache) {
+                    [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"summonerSpellList_%@", summonerSpellDataSelected] inFolder:@"staticData" :^(id json, NSInteger responseCode, BOOL fromCache) {
                         completionBlock(json);
                     }];
                 }];
@@ -571,7 +571,7 @@
                         [components setQuery:[NSString stringWithFormat:@"spellData=%@&api_key=%@", summonerSpellDataSelected, apiKey]];
                     }
                     
-                    [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"summonerSpellInfo_%d_%@", summonerSpellId, summonerSpellDataSelected] inFolder:@"staticData" :^(id json, BOOL fromCache) {
+                    [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"summonerSpellInfo_%d_%@", summonerSpellId, summonerSpellDataSelected] inFolder:@"staticData" :^(id json, NSInteger responseCode, BOOL fromCache) {
                         completionBlock(json);
                     }];
                 }];
@@ -601,7 +601,7 @@
             
             [ILA_Setup getAPIkey:^(NSString *apiKey) {
                 [components setQuery:[NSString stringWithFormat:@"api_key=%@", apiKey]];
-                [ILA_Connection connectToServer:[components URL] withFilename:@"versions" inFolder:@"staticData" :^(id json, BOOL fromCache) {
+                [ILA_Connection connectToServer:[components URL] withFilename:@"versions" inFolder:@"staticData" :^(id json, NSInteger responseCode, BOOL fromCache) {
                     completionBlock(json);
                 }];
             }];
