@@ -16,6 +16,13 @@
 		177E676C1B0E5393009F665D /* DetailArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 177E676B1B0E5393009F665D /* DetailArray.m */; };
 		177E676F1B0E53A3009F665D /* DetailDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 177E676E1B0E53A3009F665D /* DetailDictionary.m */; };
 		177E67711B0E7C2F009F665D /* Regional Endpoints.plist in Resources */ = {isa = PBXBuildFile; fileRef = 177E67701B0E7C2F009F665D /* Regional Endpoints.plist */; };
+		17D24E051B1B555100AD06FE /* ILA_DDragon.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D24E041B1B555100AD06FE /* ILA_DDragon.m */; };
+		17D24E081B1B55D000AD06FE /* ILA_Status.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D24E071B1B55D000AD06FE /* ILA_Status.m */; };
+		17D24E0B1B1B55E600AD06FE /* ILA_Match.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D24E0A1B1B55E600AD06FE /* ILA_Match.m */; };
+		17D24E0E1B1B55F700AD06FE /* ILA_MatchHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D24E0D1B1B55F700AD06FE /* ILA_MatchHistory.m */; };
+		17D24E111B1B560800AD06FE /* ILA_Stats.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D24E101B1B560800AD06FE /* ILA_Stats.m */; };
+		17D24E141B1B561600AD06FE /* ILA_Summoner.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D24E131B1B561600AD06FE /* ILA_Summoner.m */; };
+		17D24E171B1B562600AD06FE /* ILA_Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D24E161B1B562600AD06FE /* ILA_Team.m */; };
 		17D2E7B01A6EA696002ACBB3 /* ILA_Setup.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D2E7AF1A6EA696002ACBB3 /* ILA_Setup.m */; };
 		17D2E7BE1A6EE3AD002ACBB3 /* ILA_LocalStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D2E7BD1A6EE3AD002ACBB3 /* ILA_LocalStore.m */; };
 		17D2E7C11A6EE46E002ACBB3 /* ILA_Champion.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D2E7C01A6EE46E002ACBB3 /* ILA_Champion.m */; };
@@ -55,6 +62,20 @@
 		177E676D1B0E53A3009F665D /* DetailDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailDictionary.h; path = EndpointBrowserDetailViews/DetailDictionary.h; sourceTree = "<group>"; };
 		177E676E1B0E53A3009F665D /* DetailDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailDictionary.m; path = EndpointBrowserDetailViews/DetailDictionary.m; sourceTree = "<group>"; };
 		177E67701B0E7C2F009F665D /* Regional Endpoints.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Regional Endpoints.plist"; path = "iOS LoL API/Regional Endpoints.plist"; sourceTree = "<group>"; };
+		17D24E031B1B555100AD06FE /* ILA_DDragon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ILA_DDragon.h; path = "iOS LoL API/ILA_DDragon.h"; sourceTree = "<group>"; };
+		17D24E041B1B555100AD06FE /* ILA_DDragon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ILA_DDragon.m; path = "iOS LoL API/ILA_DDragon.m"; sourceTree = "<group>"; };
+		17D24E061B1B55D000AD06FE /* ILA_Status.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ILA_Status.h; path = "iOS LoL API/ILA_Status.h"; sourceTree = "<group>"; };
+		17D24E071B1B55D000AD06FE /* ILA_Status.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ILA_Status.m; path = "iOS LoL API/ILA_Status.m"; sourceTree = "<group>"; };
+		17D24E091B1B55E600AD06FE /* ILA_Match.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ILA_Match.h; path = "iOS LoL API/ILA_Match.h"; sourceTree = "<group>"; };
+		17D24E0A1B1B55E600AD06FE /* ILA_Match.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ILA_Match.m; path = "iOS LoL API/ILA_Match.m"; sourceTree = "<group>"; };
+		17D24E0C1B1B55F700AD06FE /* ILA_MatchHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ILA_MatchHistory.h; path = "iOS LoL API/ILA_MatchHistory.h"; sourceTree = "<group>"; };
+		17D24E0D1B1B55F700AD06FE /* ILA_MatchHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ILA_MatchHistory.m; path = "iOS LoL API/ILA_MatchHistory.m"; sourceTree = "<group>"; };
+		17D24E0F1B1B560800AD06FE /* ILA_Stats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ILA_Stats.h; path = "iOS LoL API/ILA_Stats.h"; sourceTree = "<group>"; };
+		17D24E101B1B560800AD06FE /* ILA_Stats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ILA_Stats.m; path = "iOS LoL API/ILA_Stats.m"; sourceTree = "<group>"; };
+		17D24E121B1B561600AD06FE /* ILA_Summoner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ILA_Summoner.h; path = "iOS LoL API/ILA_Summoner.h"; sourceTree = "<group>"; };
+		17D24E131B1B561600AD06FE /* ILA_Summoner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ILA_Summoner.m; path = "iOS LoL API/ILA_Summoner.m"; sourceTree = "<group>"; };
+		17D24E151B1B562600AD06FE /* ILA_Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ILA_Team.h; path = "iOS LoL API/ILA_Team.h"; sourceTree = "<group>"; };
+		17D24E161B1B562600AD06FE /* ILA_Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ILA_Team.m; path = "iOS LoL API/ILA_Team.m"; sourceTree = "<group>"; };
 		17D2E7AA1A6EA63E002ACBB3 /* iOSLoLAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iOSLoLAPI.h; path = "iOS LoL API/iOSLoLAPI.h"; sourceTree = "<group>"; };
 		17D2E7AE1A6EA696002ACBB3 /* ILA_Setup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ILA_Setup.h; path = "iOS LoL API/ILA_Setup.h"; sourceTree = "<group>"; };
 		17D2E7AF1A6EA696002ACBB3 /* ILA_Setup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ILA_Setup.m; path = "iOS LoL API/ILA_Setup.m"; sourceTree = "<group>"; };
@@ -176,6 +197,8 @@
 				17D2E7BD1A6EE3AD002ACBB3 /* ILA_LocalStore.m */,
 				17D2E7AE1A6EA696002ACBB3 /* ILA_Setup.h */,
 				17D2E7AF1A6EA696002ACBB3 /* ILA_Setup.m */,
+				17D24E031B1B555100AD06FE /* ILA_DDragon.h */,
+				17D24E041B1B555100AD06FE /* ILA_DDragon.m */,
 				17D2E7BF1A6EE46E002ACBB3 /* ILA_Champion.h */,
 				17D2E7C01A6EE46E002ACBB3 /* ILA_Champion.m */,
 				17E52B311B1119A400E60DB6 /* ILA_CurrentGame.h */,
@@ -188,6 +211,18 @@
 				17DC94A01B112B4E003AB0A3 /* ILA_League.m */,
 				17DC94C41B113B5C003AB0A3 /* ILA_StaticData.h */,
 				17DC94C51B113B5C003AB0A3 /* ILA_StaticData.m */,
+				17D24E061B1B55D000AD06FE /* ILA_Status.h */,
+				17D24E071B1B55D000AD06FE /* ILA_Status.m */,
+				17D24E091B1B55E600AD06FE /* ILA_Match.h */,
+				17D24E0A1B1B55E600AD06FE /* ILA_Match.m */,
+				17D24E0C1B1B55F700AD06FE /* ILA_MatchHistory.h */,
+				17D24E0D1B1B55F700AD06FE /* ILA_MatchHistory.m */,
+				17D24E0F1B1B560800AD06FE /* ILA_Stats.h */,
+				17D24E101B1B560800AD06FE /* ILA_Stats.m */,
+				17D24E121B1B561600AD06FE /* ILA_Summoner.h */,
+				17D24E131B1B561600AD06FE /* ILA_Summoner.m */,
+				17D24E151B1B562600AD06FE /* ILA_Team.h */,
+				17D24E161B1B562600AD06FE /* ILA_Team.m */,
 				177E675F1B0E43C6009F665D /* Endpoints.plist */,
 				177E67701B0E7C2F009F665D /* Regional Endpoints.plist */,
 			);
@@ -295,17 +330,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17D24E081B1B55D000AD06FE /* ILA_Status.m in Sources */,
+				17D24E051B1B555100AD06FE /* ILA_DDragon.m in Sources */,
 				17DC94C61B113B5C003AB0A3 /* ILA_StaticData.m in Sources */,
+				17D24E0B1B1B55E600AD06FE /* ILA_Match.m in Sources */,
 				177870841A6E9C5700C94D22 /* AppDelegate.m in Sources */,
 				177870811A6E9C5700C94D22 /* main.m in Sources */,
 				177E676F1B0E53A3009F665D /* DetailDictionary.m in Sources */,
 				177E676C1B0E5393009F665D /* DetailArray.m in Sources */,
+				17D24E171B1B562600AD06FE /* ILA_Team.m in Sources */,
 				17DC949E1B112975003AB0A3 /* ILA_Game.m in Sources */,
+				17D24E111B1B560800AD06FE /* ILA_Stats.m in Sources */,
 				17E52B331B1119A400E60DB6 /* ILA_CurrentGame.m in Sources */,
 				17DC949B1B11274C003AB0A3 /* ILA_FeaturedGames.m in Sources */,
 				177E67631B0E43EA009F665D /* EndpointBrowser.m in Sources */,
 				17D2E7B01A6EA696002ACBB3 /* ILA_Setup.m in Sources */,
+				17D24E0E1B1B55F700AD06FE /* ILA_MatchHistory.m in Sources */,
 				17D2E7C51A6EF5CF002ACBB3 /* ILA_Connection.m in Sources */,
+				17D24E141B1B561600AD06FE /* ILA_Summoner.m in Sources */,
 				17DC94A11B112B4E003AB0A3 /* ILA_League.m in Sources */,
 				17D2E7BE1A6EE3AD002ACBB3 /* ILA_LocalStore.m in Sources */,
 				17D2E7C11A6EE46E002ACBB3 /* ILA_Champion.m in Sources */,
