@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ILA_MasteryDto.h"
 
 @interface ILA_MasteryPageDto : NSObject
 

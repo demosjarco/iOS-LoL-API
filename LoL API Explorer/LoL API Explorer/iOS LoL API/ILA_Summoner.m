@@ -15,7 +15,7 @@
 #pragma mark - Private Methods
 
 + (NSMutableArray *)standardizeNamesInMutableArray:(NSMutableArray *)array {
-    NSMutableArray *standardizedNames = [[NSMutableArray alloc] init];
+    NSMutableArray *standardizedNames = [NSMutableArray new];
     for (NSString *summonerName in array) {
         [standardizedNames addObject:[[summonerName stringByReplacingOccurrencesOfString:@" " withString:@""] lowercaseString]];
     }
@@ -138,6 +138,87 @@
                         }
                     } else {
                         errorBlock(responseCode);
+                    }
+                }];
+            }];
+        }];
+    }];
+}
+
+/**
+ @warning This method takes a max of 40 summoners. If you provide more than 40 in @p summonerIds it will only process the first 40.
+ */
++ (void)getSummonerMasteriesForSummonerIds:(NSArray *)summonerIds :(void (^)(NSDictionary *))completionBlock {
+    // Trim array of summonerIds to 40.
+    NSMutableArray *trimmedSummonerIds;
+    if (summonerIds.count > 40) {
+        trimmedSummonerIds = [NSMutableArray arrayWithArray:[summonerIds subarrayWithRange:NSMakeRange(0, 40)]];
+    } else {
+        trimmedSummonerIds = [NSMutableArray arrayWithArray:summonerIds];
+    }
+    
+    NSURLComponents *components = [NSURLComponents new];
+    [components setScheme:@"https"];
+    [ILA_Connection getRegionHost:^(NSString *host) {
+        [components setHost:host];
+        
+        [ILA_Connection getRegionCode:^(NSString *regionCode) {
+            @autoreleasepool {
+                NSArray *endpoints = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Endpoints" ofType:@"plist"]];
+                NSDictionary *endpointSection = endpoints[10];
+                NSArray *subEndpoints = endpointSection[@"subEndpoints"];
+                NSDictionary *endpoint = subEndpoints[2];
+                
+                [components setPath:[[endpoint[@"relativePath"] stringByReplacingOccurrencesOfString:@"{region}" withString:regionCode] stringByReplacingOccurrencesOfString:@"{summonerIds}" withString:[[trimmedSummonerIds valueForKey:@"description"] componentsJoinedByString:@","]]];
+            }
+            
+            [ILA_Setup getAPIkey:^(NSString *apiKey) {
+                [components setQuery:[NSString stringWithFormat:@"api_key=%@", apiKey]];
+                [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"summonerMasteries_%@", [[trimmedSummonerIds valueForKey:@"description"] componentsJoinedByString:@"-"]] inFolder:@"summoner" :^(id json, NSInteger responseCode, BOOL fromCache) {
+                    if (responseCode == SUCCEEDED) {
+                        @autoreleasepool {
+                            NSMutableDictionary *summonerMap = [NSMutableDictionary new];
+                            for (NSString *summonerId in [json allKeys]) {
+                                @autoreleasepool {
+                                    NSDictionary *tempJSON = json[summonerId];
+                                    
+                                    ILA_MasteryPagesDto *summonerMapNew = [ILA_MasteryPagesDto new];
+                                    summonerMapNew.summonerId = [tempJSON[@"summonerId"] longValue];
+                                    @autoreleasepool {
+                                        NSMutableArray *tempPages = [NSMutableArray new];
+                                        for (NSDictionary *page in tempJSON[@"pages"]) {
+                                            @autoreleasepool {
+                                                ILA_MasteryPageDto *tempPage = [ILA_MasteryPageDto new];
+                                                tempPage.pageId = [page[@"id"] longValue];
+                                                tempPage.name = page[@"name"];
+                                                tempPage.current = [page[@"current"] boolValue];
+                                                
+                                                @autoreleasepool {
+                                                    NSMutableArray *tempMasteries = [NSMutableArray new];
+                                                    for (NSDictionary *mastery in page[@"masteries"]) {
+                                                        @autoreleasepool {
+                                                            ILA_MasteryDto *masteryTemp = [ILA_MasteryDto new];
+                                                            masteryTemp.masteryId = [mastery[@"id"] intValue];
+                                                            masteryTemp.rank = [mastery[@"rank"] intValue];
+                                                            
+                                                            [tempMasteries addObject:masteryTemp];
+                                                        }
+                                                    }
+                                                    
+                                                    tempPage.masteries = [NSArray arrayWithArray:tempMasteries];
+                                                }
+                                            }
+                                        }
+                                        
+                                        summonerMapNew.pages = [NSArray arrayWithArray:tempPages];
+                                    }
+                                    
+                                    [summonerMap setObject:summonerMapNew forKey:summonerId];
+                                }
+                            }
+                            
+                            completionBlock([NSDictionary dictionaryWithDictionary:summonerMap]);
+                        }
                     }
                 }];
             }];
