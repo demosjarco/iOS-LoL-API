@@ -32,6 +32,10 @@
 		17DC94A11B112B4E003AB0A3 /* ILA_League.m in Sources */ = {isa = PBXBuildFile; fileRef = 17DC94A01B112B4E003AB0A3 /* ILA_League.m */; };
 		17DC94C61B113B5C003AB0A3 /* ILA_StaticData.m in Sources */ = {isa = PBXBuildFile; fileRef = 17DC94C51B113B5C003AB0A3 /* ILA_StaticData.m */; };
 		17E52B331B1119A400E60DB6 /* ILA_CurrentGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E52B321B1119A400E60DB6 /* ILA_CurrentGame.m */; };
+		17FE899B1B1BB447003A203C /* ILA_SummonerDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FE899A1B1BB447003A203C /* ILA_SummonerDto.m */; };
+		17FE899F1B1D0870003A203C /* ILA_MasteryPagesDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FE899E1B1D0870003A203C /* ILA_MasteryPagesDto.m */; };
+		17FE89A21B1D088F003A203C /* ILA_MasteryPageDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FE89A11B1D088F003A203C /* ILA_MasteryPageDto.m */; };
+		17FE89A51B1D08A1003A203C /* ILA_MasteryDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FE89A41B1D08A1003A203C /* ILA_MasteryDto.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +101,13 @@
 		17E52B311B1119A400E60DB6 /* ILA_CurrentGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ILA_CurrentGame.h; path = "iOS LoL API/ILA_CurrentGame.h"; sourceTree = "<group>"; };
 		17E52B321B1119A400E60DB6 /* ILA_CurrentGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ILA_CurrentGame.m; path = "iOS LoL API/ILA_CurrentGame.m"; sourceTree = "<group>"; };
 		17FE89961B1B9B87003A203C /* ILA_SummonerDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ILA_SummonerDto.h; path = "iOS LoL API/Summoner Subclasses/ILA_SummonerDto.h"; sourceTree = "<group>"; };
+		17FE899A1B1BB447003A203C /* ILA_SummonerDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ILA_SummonerDto.m; path = "iOS LoL API/Summoner Subclasses/ILA_SummonerDto.m"; sourceTree = "<group>"; };
+		17FE899D1B1D0870003A203C /* ILA_MasteryPagesDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ILA_MasteryPagesDto.h; path = "iOS LoL API/Summoner Subclasses/Masteries/ILA_MasteryPagesDto.h"; sourceTree = "<group>"; };
+		17FE899E1B1D0870003A203C /* ILA_MasteryPagesDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ILA_MasteryPagesDto.m; path = "iOS LoL API/Summoner Subclasses/Masteries/ILA_MasteryPagesDto.m"; sourceTree = "<group>"; };
+		17FE89A01B1D088F003A203C /* ILA_MasteryPageDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ILA_MasteryPageDto.h; path = "iOS LoL API/Summoner Subclasses/Masteries/ILA_MasteryPageDto.h"; sourceTree = "<group>"; };
+		17FE89A11B1D088F003A203C /* ILA_MasteryPageDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ILA_MasteryPageDto.m; path = "iOS LoL API/Summoner Subclasses/Masteries/ILA_MasteryPageDto.m"; sourceTree = "<group>"; };
+		17FE89A31B1D08A1003A203C /* ILA_MasteryDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ILA_MasteryDto.h; path = "iOS LoL API/Summoner Subclasses/Masteries/ILA_MasteryDto.h"; sourceTree = "<group>"; };
+		17FE89A41B1D08A1003A203C /* ILA_MasteryDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ILA_MasteryDto.m; path = "iOS LoL API/Summoner Subclasses/Masteries/ILA_MasteryDto.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,8 +246,23 @@
 			isa = PBXGroup;
 			children = (
 				17FE89961B1B9B87003A203C /* ILA_SummonerDto.h */,
+				17FE899A1B1BB447003A203C /* ILA_SummonerDto.m */,
+				17FE899C1B1D084F003A203C /* Masteries */,
 			);
 			name = "Summoner Subclasses";
+			sourceTree = "<group>";
+		};
+		17FE899C1B1D084F003A203C /* Masteries */ = {
+			isa = PBXGroup;
+			children = (
+				17FE899D1B1D0870003A203C /* ILA_MasteryPagesDto.h */,
+				17FE899E1B1D0870003A203C /* ILA_MasteryPagesDto.m */,
+				17FE89A01B1D088F003A203C /* ILA_MasteryPageDto.h */,
+				17FE89A11B1D088F003A203C /* ILA_MasteryPageDto.m */,
+				17FE89A31B1D08A1003A203C /* ILA_MasteryDto.h */,
+				17FE89A41B1D08A1003A203C /* ILA_MasteryDto.m */,
+			);
+			name = Masteries;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -345,11 +371,13 @@
 				17DC94C61B113B5C003AB0A3 /* ILA_StaticData.m in Sources */,
 				17D24E0B1B1B55E600AD06FE /* ILA_Match.m in Sources */,
 				177870841A6E9C5700C94D22 /* AppDelegate.m in Sources */,
+				17FE89A21B1D088F003A203C /* ILA_MasteryPageDto.m in Sources */,
 				177870811A6E9C5700C94D22 /* main.m in Sources */,
 				177E676F1B0E53A3009F665D /* DetailDictionary.m in Sources */,
 				177E676C1B0E5393009F665D /* DetailArray.m in Sources */,
 				17D24E171B1B562600AD06FE /* ILA_Team.m in Sources */,
 				17DC949E1B112975003AB0A3 /* ILA_Game.m in Sources */,
+				17FE899B1B1BB447003A203C /* ILA_SummonerDto.m in Sources */,
 				17D24E111B1B560800AD06FE /* ILA_Stats.m in Sources */,
 				17E52B331B1119A400E60DB6 /* ILA_CurrentGame.m in Sources */,
 				17DC949B1B11274C003AB0A3 /* ILA_FeaturedGames.m in Sources */,
@@ -357,8 +385,10 @@
 				17D2E7B01A6EA696002ACBB3 /* ILA_Setup.m in Sources */,
 				17D24E0E1B1B55F700AD06FE /* ILA_MatchHistory.m in Sources */,
 				17D2E7C51A6EF5CF002ACBB3 /* ILA_Connection.m in Sources */,
+				17FE899F1B1D0870003A203C /* ILA_MasteryPagesDto.m in Sources */,
 				17D24E141B1B561600AD06FE /* ILA_Summoner.m in Sources */,
 				17DC94A11B112B4E003AB0A3 /* ILA_League.m in Sources */,
+				17FE89A51B1D08A1003A203C /* ILA_MasteryDto.m in Sources */,
 				17D2E7BE1A6EE3AD002ACBB3 /* ILA_LocalStore.m in Sources */,
 				17D2E7C11A6EE46E002ACBB3 /* ILA_Champion.m in Sources */,
 			);
