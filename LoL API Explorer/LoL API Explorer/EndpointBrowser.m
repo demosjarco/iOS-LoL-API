@@ -244,7 +244,7 @@
                         [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
                         [alert addAction:[UIAlertAction actionWithTitle:@"Submit" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                             @autoreleasepool {
-                                NSMutableArray *summonerIDarray = [[NSMutableArray alloc] init];
+                                NSMutableArray *summonerIDarray = [NSMutableArray new];
                                 for (UITextField *textField in alert.textFields) {
                                     if (textField.text.length > 0) {
                                         [summonerIDarray addObject:textField.text];
@@ -310,7 +310,7 @@
                         [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
                         [alert addAction:[UIAlertAction actionWithTitle:@"Submit" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                             @autoreleasepool {
-                                NSMutableArray *summonerIDarray = [[NSMutableArray alloc] init];
+                                NSMutableArray *summonerIDarray = [NSMutableArray new];
                                 for (UITextField *textField in alert.textFields) {
                                     if (textField.text.length > 0) {
                                         [summonerIDarray addObject:textField.text];
@@ -376,7 +376,7 @@
                         [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
                         [alert addAction:[UIAlertAction actionWithTitle:@"Submit" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                             @autoreleasepool {
-                                NSMutableArray *teamIDarray = [[NSMutableArray alloc] init];
+                                NSMutableArray *teamIDarray = [NSMutableArray new];
                                 for (UITextField *textField in alert.textFields) {
                                     if (textField.text.length > 0) {
                                         [teamIDarray addObject:textField.text];
@@ -442,7 +442,7 @@
                         [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
                         [alert addAction:[UIAlertAction actionWithTitle:@"Submit" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                             @autoreleasepool {
-                                NSMutableArray *teamIDarray = [[NSMutableArray alloc] init];
+                                NSMutableArray *teamIDarray = [NSMutableArray new];
                                 for (UITextField *textField in alert.textFields) {
                                     if (textField.text.length > 0) {
                                         [teamIDarray addObject:textField.text];
