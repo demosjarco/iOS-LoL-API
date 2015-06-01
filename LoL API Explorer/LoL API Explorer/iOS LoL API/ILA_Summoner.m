@@ -207,6 +207,8 @@
                                                     
                                                     tempPage.masteries = [NSArray arrayWithArray:tempMasteries];
                                                 }
+                                                
+                                                [tempPages addObject:tempPage];
                                             }
                                         }
                                         
