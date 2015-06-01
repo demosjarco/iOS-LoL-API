@@ -14,14 +14,6 @@
 
 #pragma mark - Private Methods
 
-+ (NSMutableArray *)standardizeNamesInMutableArray:(NSMutableArray *)array {
-    NSMutableArray *standardizedNames = [NSMutableArray new];
-    for (NSString *summonerName in array) {
-        [standardizedNames addObject:[[summonerName stringByReplacingOccurrencesOfString:@" " withString:@""] lowercaseString]];
-    }
-    return standardizedNames;
-}
-
 #pragma mark - Public Methods
 
 /**
@@ -37,7 +29,10 @@
     }
     
     // Standardize names
-    NSMutableArray *standardizedSummonerNames = [self standardizeNamesInMutableArray:trimmedSummonerNames];
+    NSMutableArray *standardizedSummonerNames = [NSMutableArray new];
+    for (NSString *summonerName in trimmedSummonerNames) {
+        [standardizedSummonerNames addObject:[[summonerName stringByReplacingOccurrencesOfString:@" " withString:@""] lowercaseString]];
+    }
     
     NSURLComponents *components = [NSURLComponents new];
     [components setScheme:@"https"];
