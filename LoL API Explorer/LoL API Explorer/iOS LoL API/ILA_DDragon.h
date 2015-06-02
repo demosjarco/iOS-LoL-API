@@ -12,5 +12,17 @@
 @interface ILA_DDragon : NSObject
 
 + (void)getProfileIcon:(int)profileIconId :(void (^)(UIImage *profileIconImage))completionBlock;
++ (void)getSplashArtForChampion:(NSString *)fileName withSkinNumber:(int)skinNumber :(void(^)(UIImage *championSplash))completionBlock;
++ (void)getLoadingArtForChampion:(NSString *)fileName withSkinNumber:(int)skinNumber :(void(^)(UIImage *championLoading))completionBlock;
++ (void)getSquareArtForChampion:(NSString *)fileName :(void(^)(UIImage *championSquare))completionBlock;
++ (void)get :(void(^)(UIImage *))completionBlock;
++ (void)get :(void(^)(UIImage *))completionBlock;
++ (void)get :(void(^)(UIImage *))completionBlock;
++ (void)get :(void(^)(UIImage *))completionBlock;
++ (void)get :(void(^)(UIImage *))completionBlock;
++ (void)get :(void(^)(UIImage *))completionBlock;
++ (void)get :(void(^)(UIImage *))completionBlock;
++ (void)get :(void(^)(UIImage *))completionBlock;
++ (void)get :(void(^)(UIImage *))completionBlock;
 
 @end
