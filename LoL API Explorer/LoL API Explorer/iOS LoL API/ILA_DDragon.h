@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface ILA_DDragon : NSObject
+
++ (void)getProfileIcon:(int)profileIconId :(void (^)(UIImage *profileIconImage))completionBlock;
 
 @end
