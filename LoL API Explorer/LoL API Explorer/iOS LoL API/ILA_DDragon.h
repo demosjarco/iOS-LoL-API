@@ -11,6 +11,8 @@
 
 @interface ILA_DDragon : NSObject
 
++ (void)getImageFromRect:(CGRect)imageRectInSprite fromSprite:(UIImage *)sprite :(void (^)(UIImage *imageFromSprite))completionBlock;
+
 + (void)getProfileIcon:(int)profileIconId :(void (^)(UIImage *profileIconImage))completionBlock;
 
 + (void)getSplashArtForChampion:(NSString *)fileName withSkinNumber:(int)skinNumber :(void(^)(UIImage *championSplash))completionBlock;
@@ -20,12 +22,18 @@
 + (void)getPassiveAbilityIcon:(NSString *)fileName :(void(^)(UIImage *passiveAbilityIcon))completionBlock;
 + (void)getAbilityIcon:(NSString *)fileName :(void(^)(UIImage *abilityIcon))completionBlock;
 
-+ (void)get :(void(^)(UIImage *))completionBlock;
-+ (void)get :(void(^)(UIImage *))completionBlock;
-+ (void)get :(void(^)(UIImage *))completionBlock;
-+ (void)get :(void(^)(UIImage *))completionBlock;
-+ (void)get :(void(^)(UIImage *))completionBlock;
-+ (void)get :(void(^)(UIImage *))completionBlock;
-+ (void)get :(void(^)(UIImage *))completionBlock;
++ (void)getSummonerSpell:(NSString *)fileName :(void(^)(UIImage *summonerSpellIcon))completionBlock;
+
++ (void)getItem:(NSString *)fileName :(void(^)(UIImage *itemIcon))completionBlock;
+
++ (void)getMasteryIcon:(NSString *)fileName :(void(^)(UIImage *masteryIcon))completionBlock;
+
++ (void)getRuneIcon:(NSString *)fileName :(void(^)(UIImage *runeIcon))completionBlock;
+
++ (void)getSpriteSheet:(NSString *)fileName :(void(^)(UIImage *spriteSheet))completionBlock;
+
++ (void)getMinimap:(NSString *)fileName :(void(^)(UIImage *minimapImage))completionBlock;
+
++ (void)getScoreboardIcon:(NSString *)icon :(void(^)(UIImage *scoreboardIcon))completionBlock;
 
 @end

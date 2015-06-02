@@ -21,8 +21,12 @@
 
 + (void)getLatestDDragonVersionFor:(NSString *)dataType :(void (^)(NSString *version))completionBlock {
     [ILA_StaticData getRealmInfo:^(NSDictionary *realmInfo) {
-        NSDictionary *n = realmInfo[@"n"];
-        completionBlock(n[dataType]);
+        if ([dataType isEqualToString:@"v"]) {
+            completionBlock(realmInfo[dataType]);
+        } else {
+            NSDictionary *n = realmInfo[@"n"];
+            completionBlock(n[dataType]);
+        }
     }];
 }
 
@@ -48,6 +52,12 @@
 }
 
 #pragma mark - Public Methods
+
++ (void)getImageFromRect:(CGRect)imageRectInSprite fromSprite:(UIImage *)sprite :(void (^)(UIImage *))completionBlock {
+    CGImageRef imageRef = CGImageCreateWithImageInRect(sprite.CGImage, imageRectInSprite);
+    completionBlock([UIImage imageWithCGImage:imageRef]);
+    CGImageRelease(imageRef);
+}
 
 + (void)getProfileIcon:(int)profileIconId :(void (^)(UIImage *))completionBlock {
     [self getCDNurl:^(NSString *cdnUrl) {
@@ -109,6 +119,93 @@
     [self getCDNurl:^(NSString *cdnUrl) {
         [self getLatestDDragonVersionFor:@"champion" :^(NSString *version) {
             NSString *url = [[[[cdnUrl stringByAppendingPathComponent:version] stringByAppendingPathComponent:@"img"] stringByAppendingPathComponent:@"spell"] stringByAppendingPathComponent:fileName];
+            
+            [self connectToDDragon:url :^(NSData *data) {
+                completionBlock([UIImage imageWithData:data]);
+            }];
+        }];
+    }];
+}
+
++ (void)getSummonerSpell:(NSString *)fileName :(void (^)(UIImage *))completionBlock {
+    [self getCDNurl:^(NSString *cdnUrl) {
+        [self getLatestDDragonVersionFor:@"summoner" :^(NSString *version) {
+            NSString *url = [[[[cdnUrl stringByAppendingPathComponent:version] stringByAppendingPathComponent:@"img"] stringByAppendingPathComponent:@"spell"] stringByAppendingPathComponent:fileName];
+            
+            [self connectToDDragon:url :^(NSData *data) {
+                completionBlock([UIImage imageWithData:data]);
+            }];
+        }];
+    }];
+}
+
++ (void)getItem:(NSString *)fileName :(void (^)(UIImage *))completionBlock {
+    [self getCDNurl:^(NSString *cdnUrl) {
+        [self getLatestDDragonVersionFor:@"item" :^(NSString *version) {
+            NSString *url = [[[[cdnUrl stringByAppendingPathComponent:version] stringByAppendingPathComponent:@"img"] stringByAppendingPathComponent:@"item"] stringByAppendingPathComponent:fileName];
+            
+            [self connectToDDragon:url :^(NSData *data) {
+                completionBlock([UIImage imageWithData:data]);
+            }];
+        }];
+    }];
+}
+
++ (void)getMasteryIcon:(NSString *)fileName :(void (^)(UIImage *))completionBlock {
+    [self getCDNurl:^(NSString *cdnUrl) {
+        [self getLatestDDragonVersionFor:@"mastery" :^(NSString *version) {
+            NSString *url = [[[[cdnUrl stringByAppendingPathComponent:version] stringByAppendingPathComponent:@"img"] stringByAppendingPathComponent:@"mastery"] stringByAppendingPathComponent:fileName];
+            
+            [self connectToDDragon:url :^(NSData *data) {
+                completionBlock([UIImage imageWithData:data]);
+            }];
+        }];
+    }];
+}
+
++ (void)getRuneIcon:(NSString *)fileName :(void (^)(UIImage *))completionBlock {
+    [self getCDNurl:^(NSString *cdnUrl) {
+        [self getLatestDDragonVersionFor:@"rune" :^(NSString *version) {
+            NSString *url = [[[[cdnUrl stringByAppendingPathComponent:version] stringByAppendingPathComponent:@"img"] stringByAppendingPathComponent:@"rune"] stringByAppendingPathComponent:fileName];
+            
+            [self connectToDDragon:url :^(NSData *data) {
+                completionBlock([UIImage imageWithData:data]);
+            }];
+        }];
+    }];
+}
+
++ (void)getSpriteSheet:(NSString *)fileName :(void (^)(UIImage *))completionBlock {
+    [self getCDNurl:^(NSString *cdnUrl) {
+        [self getLatestDDragonVersionFor:@"v" :^(NSString *version) {
+            NSString *url = [[[[cdnUrl stringByAppendingPathComponent:version] stringByAppendingPathComponent:@"img"] stringByAppendingPathComponent:@"sprite"] stringByAppendingPathComponent:fileName];
+            
+            [self connectToDDragon:url :^(NSData *data) {
+                completionBlock([UIImage imageWithData:data]);
+            }];
+        }];
+    }];
+}
+
++ (void)getMinimap:(NSString *)fileName :(void (^)(UIImage *))completionBlock {
+    [self getCDNurl:^(NSString *cdnUrl) {
+        [self getLatestDDragonVersionFor:@"v" :^(NSString *version) {
+            NSString *url = [[[[cdnUrl stringByAppendingPathComponent:version] stringByAppendingPathComponent:@"img"] stringByAppendingPathComponent:@"map"] stringByAppendingPathComponent:fileName];
+            
+            [self connectToDDragon:url :^(NSData *data) {
+                completionBlock([UIImage imageWithData:data]);
+            }];
+        }];
+    }];
+}
+
+/**
+ @param icon Valid values: champion, gold, items, minion, score, spells
+ */
++ (void)getScoreboardIcon:(NSString *)icon :(void (^)(UIImage *))completionBlock {
+    [self getCDNurl:^(NSString *cdnUrl) {
+        [self getLatestDDragonVersionFor:@"v" :^(NSString *version) {
+            NSString *url = [[[[[cdnUrl stringByAppendingPathComponent:version] stringByAppendingPathComponent:@"img"] stringByAppendingPathComponent:@"ui"] stringByAppendingPathComponent:icon] stringByAppendingPathExtension:@"png"];
             
             [self connectToDDragon:url :^(NSData *data) {
                 completionBlock([UIImage imageWithData:data]);
