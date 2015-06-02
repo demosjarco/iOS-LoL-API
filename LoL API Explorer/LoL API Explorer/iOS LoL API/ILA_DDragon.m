@@ -93,4 +93,28 @@
     }];
 }
 
++ (void)getPassiveAbilityIcon:(NSString *)fileName :(void (^)(UIImage *))completionBlock {
+    [self getCDNurl:^(NSString *cdnUrl) {
+        [self getLatestDDragonVersionFor:@"champion" :^(NSString *version) {
+            NSString *url = [[[[cdnUrl stringByAppendingPathComponent:version] stringByAppendingPathComponent:@"img"] stringByAppendingPathComponent:@"passive"] stringByAppendingPathComponent:fileName];
+            
+            [self connectToDDragon:url :^(NSData *data) {
+                completionBlock([UIImage imageWithData:data]);
+            }];
+        }];
+    }];
+}
+
++ (void)getAbilityIcon:(NSString *)fileName :(void (^)(UIImage *))completionBlock {
+    [self getCDNurl:^(NSString *cdnUrl) {
+        [self getLatestDDragonVersionFor:@"champion" :^(NSString *version) {
+            NSString *url = [[[[cdnUrl stringByAppendingPathComponent:version] stringByAppendingPathComponent:@"img"] stringByAppendingPathComponent:@"spell"] stringByAppendingPathComponent:fileName];
+            
+            [self connectToDDragon:url :^(NSData *data) {
+                completionBlock([UIImage imageWithData:data]);
+            }];
+        }];
+    }];
+}
+
 @end
