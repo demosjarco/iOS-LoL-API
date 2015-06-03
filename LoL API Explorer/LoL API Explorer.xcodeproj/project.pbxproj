@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		173B790B1B1FC65D00A994AE /* ILA_RunePagesDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 173B790A1B1FC65D00A994AE /* ILA_RunePagesDto.m */; };
+		173B790E1B1FC67300A994AE /* ILA_RunePageDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 173B790D1B1FC67300A994AE /* ILA_RunePageDto.m */; };
+		173B79111B1FC6A200A994AE /* ILA_RuneSlotDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 173B79101B1FC6A200A994AE /* ILA_RuneSlotDto.m */; };
 		177870811A6E9C5700C94D22 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 177870801A6E9C5700C94D22 /* main.m */; };
 		177870841A6E9C5700C94D22 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 177870831A6E9C5700C94D22 /* AppDelegate.m */; };
 		1778709B1A6E9C5700C94D22 /* LoL_API_ExplorerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1778709A1A6E9C5700C94D22 /* LoL_API_ExplorerTests.m */; };
@@ -49,6 +52,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		173B79091B1FC65D00A994AE /* ILA_RunePagesDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ILA_RunePagesDto.h; path = "iOS LoL API/Summoner Subclasses/Runes/ILA_RunePagesDto.h"; sourceTree = "<group>"; };
+		173B790A1B1FC65D00A994AE /* ILA_RunePagesDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ILA_RunePagesDto.m; path = "iOS LoL API/Summoner Subclasses/Runes/ILA_RunePagesDto.m"; sourceTree = "<group>"; };
+		173B790C1B1FC67300A994AE /* ILA_RunePageDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ILA_RunePageDto.h; path = "iOS LoL API/Summoner Subclasses/Runes/ILA_RunePageDto.h"; sourceTree = "<group>"; };
+		173B790D1B1FC67300A994AE /* ILA_RunePageDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ILA_RunePageDto.m; path = "iOS LoL API/Summoner Subclasses/Runes/ILA_RunePageDto.m"; sourceTree = "<group>"; };
+		173B790F1B1FC6A200A994AE /* ILA_RuneSlotDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ILA_RuneSlotDto.h; path = "iOS LoL API/Summoner Subclasses/Runes/ILA_RuneSlotDto.h"; sourceTree = "<group>"; };
+		173B79101B1FC6A200A994AE /* ILA_RuneSlotDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ILA_RuneSlotDto.m; path = "iOS LoL API/Summoner Subclasses/Runes/ILA_RuneSlotDto.m"; sourceTree = "<group>"; };
 		1778707B1A6E9C5700C94D22 /* LoL API Explorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LoL API Explorer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1778707F1A6E9C5700C94D22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		177870801A6E9C5700C94D22 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -128,6 +137,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		173B79081B1FC64600A994AE /* Runes */ = {
+			isa = PBXGroup;
+			children = (
+				173B79091B1FC65D00A994AE /* ILA_RunePagesDto.h */,
+				173B790A1B1FC65D00A994AE /* ILA_RunePagesDto.m */,
+				173B790C1B1FC67300A994AE /* ILA_RunePageDto.h */,
+				173B790D1B1FC67300A994AE /* ILA_RunePageDto.m */,
+				173B790F1B1FC6A200A994AE /* ILA_RuneSlotDto.h */,
+				173B79101B1FC6A200A994AE /* ILA_RuneSlotDto.m */,
+			);
+			name = Runes;
+			sourceTree = "<group>";
+		};
 		177870721A6E9C5700C94D22 = {
 			isa = PBXGroup;
 			children = (
@@ -248,6 +270,7 @@
 				17FE89961B1B9B87003A203C /* ILA_SummonerDto.h */,
 				17FE899A1B1BB447003A203C /* ILA_SummonerDto.m */,
 				17FE899C1B1D084F003A203C /* Masteries */,
+				173B79081B1FC64600A994AE /* Runes */,
 			);
 			name = "Summoner Subclasses";
 			sourceTree = "<group>";
@@ -369,13 +392,16 @@
 				17D24E081B1B55D000AD06FE /* ILA_Status.m in Sources */,
 				17D24E051B1B555100AD06FE /* ILA_DDragon.m in Sources */,
 				17DC94C61B113B5C003AB0A3 /* ILA_StaticData.m in Sources */,
+				173B790B1B1FC65D00A994AE /* ILA_RunePagesDto.m in Sources */,
 				17D24E0B1B1B55E600AD06FE /* ILA_Match.m in Sources */,
 				177870841A6E9C5700C94D22 /* AppDelegate.m in Sources */,
 				17FE89A21B1D088F003A203C /* ILA_MasteryPageDto.m in Sources */,
 				177870811A6E9C5700C94D22 /* main.m in Sources */,
+				173B79111B1FC6A200A994AE /* ILA_RuneSlotDto.m in Sources */,
 				177E676F1B0E53A3009F665D /* DetailDictionary.m in Sources */,
 				177E676C1B0E5393009F665D /* DetailArray.m in Sources */,
 				17D24E171B1B562600AD06FE /* ILA_Team.m in Sources */,
+				173B790E1B1FC67300A994AE /* ILA_RunePageDto.m in Sources */,
 				17DC949E1B112975003AB0A3 /* ILA_Game.m in Sources */,
 				17FE899B1B1BB447003A203C /* ILA_SummonerDto.m in Sources */,
 				17D24E111B1B560800AD06FE /* ILA_Stats.m in Sources */,

@@ -252,7 +252,7 @@
             
             [ILA_Setup getAPIkey:^(NSString *apiKey) {
                 [components setQuery:[NSString stringWithFormat:@"api_key=%@", apiKey]];
-                [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"summonerMasteries_%@", [[trimmedSummonerIds valueForKey:@"description"] componentsJoinedByString:@"-"]] inFolder:@"summoner" :^(id json, NSInteger responseCode, BOOL fromCache) {
+                [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"summonerRunes_%@", [[trimmedSummonerIds valueForKey:@"description"] componentsJoinedByString:@"-"]] inFolder:@"summoner" :^(id json, NSInteger responseCode, BOOL fromCache) {
                     if (responseCode == SUCCEEDED) {
                         @autoreleasepool {
                             NSMutableDictionary *summonerMap = [NSMutableDictionary new];
@@ -260,30 +260,30 @@
                                 @autoreleasepool {
                                     NSDictionary *tempJSON = json[summonerId];
                                     
-                                    ILA_MasteryPagesDto *summonerMapNew = [ILA_MasteryPagesDto new];
+                                    ILA_RunePagesDto *summonerMapNew = [ILA_RunePagesDto new];
                                     summonerMapNew.summonerId = [tempJSON[@"summonerId"] longValue];
                                     @autoreleasepool {
                                         NSMutableArray *tempPages = [NSMutableArray new];
                                         for (NSDictionary *page in tempJSON[@"pages"]) {
                                             @autoreleasepool {
-                                                ILA_MasteryPageDto *tempPage = [ILA_MasteryPageDto new];
+                                                ILA_RunePageDto *tempPage = [ILA_RunePageDto new];
                                                 tempPage.pageId = [page[@"id"] longValue];
                                                 tempPage.name = page[@"name"];
                                                 tempPage.current = [page[@"current"] boolValue];
                                                 
                                                 @autoreleasepool {
-                                                    NSMutableArray *tempMasteries = [NSMutableArray new];
-                                                    for (NSDictionary *mastery in page[@"masteries"]) {
+                                                    NSMutableArray *tempSlots = [NSMutableArray new];
+                                                    for (NSDictionary *rune in page[@"slots"]) {
                                                         @autoreleasepool {
-                                                            ILA_MasteryDto *masteryTemp = [ILA_MasteryDto new];
-                                                            masteryTemp.masteryId = [mastery[@"id"] intValue];
-                                                            masteryTemp.rank = [mastery[@"rank"] intValue];
+                                                            ILA_RuneSlotDto *runeTemp = [ILA_RuneSlotDto new];
+                                                            runeTemp.runeId = [rune[@"runeId"] intValue];
+                                                            runeTemp.runeSlotId = [rune[@"runeSlotId"] intValue];
                                                             
-                                                            [tempMasteries addObject:masteryTemp];
+                                                            [tempSlots addObject:runeTemp];
                                                         }
                                                     }
                                                     
-                                                    tempPage.masteries = [NSArray arrayWithArray:tempMasteries];
+                                                    tempPage.slots = [NSArray arrayWithArray:tempSlots];
                                                 }
                                                 
                                                 [tempPages addObject:tempPage];

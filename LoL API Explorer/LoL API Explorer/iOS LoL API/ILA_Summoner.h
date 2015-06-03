@@ -10,6 +10,7 @@
 
 #import "ILA_SummonerDto.h"
 #import "ILA_MasteryPagesDto.h"
+#import "ILA_RunePagesDto.h"
 
 @interface ILA_Summoner : NSObject
 
