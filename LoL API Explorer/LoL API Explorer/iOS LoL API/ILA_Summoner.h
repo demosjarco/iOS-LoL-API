@@ -16,5 +16,6 @@
 + (void)getSummonersForSummonerNames:(NSArray *)summonerNames :(void (^)(NSDictionary *summonerMap))completionBlock :(void (^)(NSInteger httpResponseCode))errorBlock;
 + (void)getSummonersForSummonerIds:(NSArray *)summonerIds :(void (^)(NSDictionary *summonerMap))completionBlock :(void (^)(NSInteger httpResponseCode))errorBlock;
 + (void)getSummonerMasteriesForSummonerIds:(NSArray *)summonerIds :(void (^)(NSDictionary *summonerMap))completionBlock;
++ (void)getSummonerRunesForSummonerIds:(NSArray *)summonerIds :(void (^)(NSDictionary *summonerMap))completionBlock;
 
 @end
