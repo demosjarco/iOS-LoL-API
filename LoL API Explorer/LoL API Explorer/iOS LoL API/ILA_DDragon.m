@@ -151,10 +151,15 @@
     }];
 }
 
-+ (void)getMasteryIcon:(NSString *)fileName :(void (^)(UIImage *))completionBlock {
++ (void)getMasteryIcon:(NSString *)fileName hasRank:(BOOL)hasRank :(void (^)(UIImage *))completionBlock {
     [self getCDNurl:^(NSString *cdnUrl) {
         [self getLatestDDragonVersionFor:@"mastery" :^(NSString *version) {
-            NSString *url = [[[[cdnUrl stringByAppendingPathComponent:version] stringByAppendingPathComponent:@"img"] stringByAppendingPathComponent:@"mastery"] stringByAppendingPathComponent:fileName];
+            NSString *url;
+            if (hasRank) {
+                url = [[[[cdnUrl stringByAppendingPathComponent:version] stringByAppendingPathComponent:@"img"] stringByAppendingPathComponent:@"mastery"] stringByAppendingPathComponent:fileName];
+            } else {
+                url = [[[[cdnUrl stringByAppendingPathComponent:version] stringByAppendingPathComponent:@"img"] stringByAppendingPathComponent:@"mastery"] stringByAppendingPathComponent:[NSString stringWithFormat:@"gray_%@", fileName]];
+            }
             
             [self connectToDDragon:url :^(NSData *data) {
                 completionBlock([UIImage imageWithData:data]);

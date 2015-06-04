@@ -26,7 +26,7 @@
 
 + (void)getItem:(NSString *)fileName :(void(^)(UIImage *itemIcon))completionBlock;
 
-+ (void)getMasteryIcon:(NSString *)fileName :(void(^)(UIImage *masteryIcon))completionBlock;
++ (void)getMasteryIcon:(NSString *)fileName hasRank:(BOOL)hasRank :(void(^)(UIImage *masteryIcon))completionBlock;
 
 + (void)getRuneIcon:(NSString *)fileName :(void(^)(UIImage *runeIcon))completionBlock;
 
