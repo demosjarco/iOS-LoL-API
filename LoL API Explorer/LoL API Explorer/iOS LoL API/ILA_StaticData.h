@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+#import "ILA_ChampionDto.h"
+
 @interface ILA_StaticData : NSObject
 
 + (void)getChampionList:(NSString *)champDataSelected :(void (^)(NSDictionary *championList))completionBlock;
-+ (void)getChampionInfoFor:(int)champId withData:(NSString *)champDataSelected :(void (^)(NSDictionary *championInfo))completionBlock;
++ (void)getChampionInfoFor:(int)champId withData:(NSString *)champDataSelected :(void (^)(ILA_ChampionDto *championInfo))completionBlock;
 + (void)getItemList:(NSString *)itemListDataSelected :(void (^)(NSDictionary *itemList))completionBlock;
 + (void)getItemInfoFor:(int)itemId withData:(NSString *)itemListDataSelected :(void (^)(NSDictionary *itemInfo))completionBlock;
 + (void)getLocalizedStringForPlaceHolderText:(NSString *)originalText :(void (^)(NSString *localizedText))completionBlock;

@@ -68,7 +68,7 @@
 /**
  @note Requests to this API will not be counted in your Rate Limit.
  */
-+ (void)getChampionInfoFor:(int)champId withData:(NSString *)champDataSelected :(void (^)(NSDictionary *))completionBlock {
++ (void)getChampionInfoFor:(int)champId withData:(NSString *)champDataSelected :(void (^)(ILA_ChampionDto *))completionBlock {
     NSURLComponents *components = [NSURLComponents new];
     [components setScheme:@"https"];
     [ILA_Connection getRegionHost:^(NSString *host) {
@@ -93,7 +93,12 @@
                     }
                     
                     [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"championInfo_%d_%@", champId, champDataSelected] inFolder:@"staticData" :^(id json, NSInteger responseCode, BOOL fromCache) {
-                        completionBlock(json);
+                        @autoreleasepool {
+                            ILA_ChampionDto *champInfo = [ILA_ChampionDto new];
+                            champInfo.bo
+                            
+                            completionBlock(champInfo);
+                        }
                     }];
                 }];
             }];

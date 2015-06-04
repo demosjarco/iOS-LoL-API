@@ -1,5 +1,5 @@
 //
-//  ILA_ChampionDto.h
+//  ILA_StaticData_ChampionDto.h
 //  LoL API Explorer
 //
 //  Created by Victor Ilisei on 6/3/15.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ILA_ChampionDto : NSObject
+@interface ILA_StaticData_ChampionDto : NSObject
 
 @property (nonatomic, strong) NSArray *allytips;
 
