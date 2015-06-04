@@ -10,27 +10,8 @@
 
 @interface ILA_StaticData : NSObject
 
-typedef enum {
-    standard,
-    all,
-    allytips,
-    altimages,
-    blurb,
-    enemytips,
-    image,
-    info,
-    lore,
-    partype,
-    passive,
-    recommended,
-    skins,
-    spells,
-    stats,
-    tags
-} champData;
-
-+ (void)getChampionList:(champData)champDataSelected :(void (^)(NSDictionary *championList))completionBlock;
-+ (void)getChampionInfoFor:(int)champId withData:(champData)champDataSelected :(void (^)(NSDictionary *championInfo))completionBlock;
++ (void)getChampionList:(NSString *)champDataSelected :(void (^)(NSDictionary *championList))completionBlock;
++ (void)getChampionInfoFor:(int)champId withData:(NSString *)champDataSelected :(void (^)(NSDictionary *championInfo))completionBlock;
 + (void)getItemList:(NSString *)itemListDataSelected :(void (^)(NSDictionary *itemList))completionBlock;
 + (void)getItemInfoFor:(int)itemId withData:(NSString *)itemListDataSelected :(void (^)(NSDictionary *itemInfo))completionBlock;
 + (void)getLocalizedStringForPlaceHolderText:(NSString *)originalText :(void (^)(NSString *localizedText))completionBlock;

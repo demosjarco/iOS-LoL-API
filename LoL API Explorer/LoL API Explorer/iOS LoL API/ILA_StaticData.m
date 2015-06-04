@@ -14,66 +14,6 @@
 
 #pragma mark Private Methods
 
-+ (NSString *)champDataString:(champData)champDataSelected {
-    NSString *result = nil;
-    
-    switch(champDataSelected) {
-        case standard:
-            result = @"";
-            break;
-        case all:
-            result = @"all";
-            break;
-        case allytips:
-            result = @"allytips";
-            break;
-        case altimages:
-            result = @"altimages";
-            break;
-        case blurb:
-            result = @"blurb";
-            break;
-        case enemytips:
-            result = @"enemytips";
-            break;
-        case image:
-            result = @"image";
-            break;
-        case info:
-            result = @"info";
-            break;
-        case lore:
-            result = @"lore";
-            break;
-        case partype:
-            result = @"partype";
-            break;
-        case passive:
-            result = @"passive";
-            break;
-        case recommended:
-            result = @"recommended";
-            break;
-        case skins:
-            result = @"skins";
-            break;
-        case spells:
-            result = @"spells";
-            break;
-        case stats:
-            result = @"stats";
-            break;
-        case tags:
-            result = @"tags";
-            break;
-            
-        default:
-            result = @"";
-    }
-    
-    return result;
-}
-
 /**
  @return if device locale is available to the current region, it returns that, otherwise default for current region
  */
@@ -92,7 +32,7 @@
 /**
  @note Requests to this API will not be counted in your Rate Limit.
  */
-+ (void)getChampionList:(champData)champDataSelected :(void (^)(NSDictionary *))completionBlock {
++ (void)getChampionList:(NSString *)champDataSelected :(void (^)(NSDictionary *))completionBlock {
     NSURLComponents *components = [NSURLComponents new];
     [components setScheme:@"https"];
     [ILA_Connection getRegionHost:^(NSString *host) {
@@ -111,12 +51,12 @@
             [ILA_Setup getAPIkey:^(NSString *apiKey) {
                 [self optimalLocaleForRegion:^(BOOL optimalLocale) {
                     if (optimalLocale) {
-                        [components setQuery:[NSString stringWithFormat:@"locale=%@&champData=%@&api_key=%@", [[NSLocale autoupdatingCurrentLocale] localeIdentifier], [self champDataString:champDataSelected], apiKey]];
+                        [components setQuery:[NSString stringWithFormat:@"locale=%@&champData=%@&api_key=%@", [[NSLocale autoupdatingCurrentLocale] localeIdentifier], champDataSelected, apiKey]];
                     } else {
-                        [components setQuery:[NSString stringWithFormat:@"champData=%@&api_key=%@", [self champDataString:champDataSelected], apiKey]];
+                        [components setQuery:[NSString stringWithFormat:@"champData=%@&api_key=%@", champDataSelected, apiKey]];
                     }
                     
-                    [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"championList_%@", [self champDataString:champDataSelected]] inFolder:@"staticData" :^(id json, NSInteger responseCode, BOOL fromCache) {
+                    [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"championList_%@", champDataSelected] inFolder:@"staticData" :^(id json, NSInteger responseCode, BOOL fromCache) {
                         completionBlock(json);
                     }];
                 }];
@@ -128,7 +68,7 @@
 /**
  @note Requests to this API will not be counted in your Rate Limit.
  */
-+ (void)getChampionInfoFor:(int)champId withData:(champData)champDataSelected :(void (^)(NSDictionary *))completionBlock {
++ (void)getChampionInfoFor:(int)champId withData:(NSString *)champDataSelected :(void (^)(NSDictionary *))completionBlock {
     NSURLComponents *components = [NSURLComponents new];
     [components setScheme:@"https"];
     [ILA_Connection getRegionHost:^(NSString *host) {
@@ -147,12 +87,12 @@
             [ILA_Setup getAPIkey:^(NSString *apiKey) {
                 [self optimalLocaleForRegion:^(BOOL optimalLocale) {
                     if (optimalLocale) {
-                        [components setQuery:[NSString stringWithFormat:@"locale=%@&champData=%@&api_key=%@", [[NSLocale autoupdatingCurrentLocale] localeIdentifier], [self champDataString:champDataSelected], apiKey]];
+                        [components setQuery:[NSString stringWithFormat:@"locale=%@&champData=%@&api_key=%@", [[NSLocale autoupdatingCurrentLocale] localeIdentifier], champDataSelected, apiKey]];
                     } else {
-                        [components setQuery:[NSString stringWithFormat:@"champData=%@&api_key=%@", [self champDataString:champDataSelected], apiKey]];
+                        [components setQuery:[NSString stringWithFormat:@"champData=%@&api_key=%@", champDataSelected, apiKey]];
                     }
                     
-                    [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"championInfo_%d_%@", champId, [self champDataString:champDataSelected]] inFolder:@"staticData" :^(id json, NSInteger responseCode, BOOL fromCache) {
+                    [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"championInfo_%d_%@", champId, champDataSelected] inFolder:@"staticData" :^(id json, NSInteger responseCode, BOOL fromCache) {
                         completionBlock(json);
                     }];
                 }];
