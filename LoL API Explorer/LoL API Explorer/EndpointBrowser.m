@@ -508,8 +508,7 @@
                         [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
                         [alert addAction:[UIAlertAction actionWithTitle:@"Submit" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                             @autoreleasepool {
-                                champData temp = all;
-                                [ILA_StaticData getChampionList:temp :^(NSDictionary *championList) {
+                                [ILA_StaticData getChampionList:@"all" :^(NSDictionary *championList) {
                                     @autoreleasepool {
                                         DetailDictionary *detail = [[DetailDictionary alloc] init];
                                         detail.title = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
@@ -533,8 +532,7 @@
                         [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
                         [alert addAction:[UIAlertAction actionWithTitle:@"Submit" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                             @autoreleasepool {
-                                champData temp = all;
-                                [ILA_StaticData getChampionInfoFor:[alert.textFields[0] text].intValue withData:temp :^(NSDictionary *championList) {
+                                [ILA_StaticData getChampionInfoFor:[alert.textFields[0] text].intValue withData:@"all" :^(NSDictionary *championList) {
                                     @autoreleasepool {
                                         DetailDictionary *detail = [[DetailDictionary alloc] init];
                                         detail.title = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
@@ -554,7 +552,6 @@
                         [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
                         [alert addAction:[UIAlertAction actionWithTitle:@"Submit" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                             @autoreleasepool {
-                                champData temp = all;
                                 [ILA_StaticData getItemList:@"all" :^(NSDictionary *itemList) {
                                     @autoreleasepool {
                                         DetailDictionary *detail = [[DetailDictionary alloc] init];
