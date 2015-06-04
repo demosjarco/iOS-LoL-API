@@ -83,7 +83,7 @@
                         [alert.view addSubview:freeChampSwitch];
                         [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
                         [alert addAction:[UIAlertAction actionWithTitle:@"Submit" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-                            [ILA_Champion getAllChampions:freeChampSwitch.on :^(NSArray *champions) {
+                            [ILA_Champion getAllChampionsWithOnlyFreeChamps:freeChampSwitch.on :^(NSArray *champions) {
                                 @autoreleasepool {
                                     DetailArray *detail = [[DetailArray alloc] init];
                                     detail.title = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;

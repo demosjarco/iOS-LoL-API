@@ -16,7 +16,7 @@
  Retrieve all champions. (REST)
  @return @p champions - This object contains a collection of champion information.
  */
-+ (void)getAllChampions:(BOOL)onlyFreeToPlayChamps :(void (^)(NSArray *))completionBlock {
++ (void)getAllChampionsWithOnlyFreeChamps:(BOOL)onlyFreeToPlayChamps :(void (^)(NSArray *))completionBlock {
     NSURLComponents *components = [NSURLComponents new];
     [components setScheme:@"https"];
     [ILA_Connection getRegionHost:^(NSString *host) {

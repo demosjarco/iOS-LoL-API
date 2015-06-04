@@ -10,7 +10,7 @@
 
 @interface ILA_Champion : NSObject
 
-+ (void)getAllChampions:(BOOL) onlyFreeToPlayChamps :(void (^)(NSArray *champions))completionBlock;
++ (void)getAllChampionsWithOnlyFreeChamps:(BOOL) onlyFreeToPlayChamps :(void (^)(NSArray *champions))completionBlock;
 + (void)getChampionByID:(int)champID :(void (^)(NSDictionary *champInfo))completionBlock;
 
 @end
