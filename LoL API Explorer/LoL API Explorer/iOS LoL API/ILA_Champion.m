@@ -35,7 +35,24 @@
             [ILA_Setup getAPIkey:^(NSString *apiKey) {
                 [components setQuery:[NSString stringWithFormat:@"freeToPlay=%@&api_key=%@", onlyFreeToPlayChamps ? @"true" : @"false", apiKey]];
                 [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"allChamps_%@", onlyFreeToPlayChamps ? @"true" : @"false"] inFolder:@"champion" :^(id json, NSInteger responseCode, BOOL fromCache) {
-                    completionBlock(json[@"champions"]);
+                    @autoreleasepool {
+                        NSMutableArray *tempChampions = [[NSMutableArray alloc] init];
+                        for (NSDictionary *champion in json[@"champions"]) {
+                            @autoreleasepool {
+                                ILA_ChampionDto *tempChampion = [ILA_ChampionDto new];
+                                tempChampion.active = [champion[@"active"] boolValue];
+                                tempChampion.botEnabled = [champion[@"botEnabled"] boolValue];
+                                tempChampion.botMmEnabled = [champion[@"botMmEnabled"] boolValue];
+                                tempChampion.freeToPlay = [champion[@"freeToPlay"] boolValue];
+                                tempChampion.champId = [champion[@"id"] longValue];
+                                tempChampion.rankedPlayEnabled = [champion[@"rankedPlayEnabled"] boolValue];
+                                
+                                [tempChampions addObject:tempChampion];
+                            }
+                        }
+                        
+                        completionBlock([NSArray arrayWithArray:tempChampions]);
+                    }
                 }];
             }];
         }];

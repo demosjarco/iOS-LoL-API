@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "ILA_ChampionDto.h"
+
 @interface ILA_Champion : NSObject
 
 + (void)getAllChampionsWithOnlyFreeChamps:(BOOL) onlyFreeToPlayChamps :(void (^)(NSArray *champions))completionBlock;
