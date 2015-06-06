@@ -19,3 +19,50 @@ Please read Riot Games API terms [here](https://developer.riotgames.com/terms) a
 - UIKit
 
 ## Getting Started
+
+1. Subclass the ILA_Setup and override the 2 methods `+ (void)getAPIkey :(void (^)(NSString *apiKey))completionBlock` and `+ (void)getLeagueRegion :(void (^)(NSString *regionCode))completionBlock` and use the `completionBlock()` to return NSString of the appropriate values. See code comments for more information.
+2. Import `iOSLoLAPI.h` into any class that you need to call methods, or in a prefix file as you please.
+3. Call away! Note if you hit your rate limit or for whatever reason server is offline, it will attempt to read the last saved version and return that instead. These files are saved in the `~/Documents/Riot_API_Cache/` of your application documents directory. You may change this in `ILA_LocalStore`.
+4. 
+## Examples
+See project LoL API Explorer for code examples or except for my league app below.
+
+```
+[ILA_Champion getAllChampionsWithOnlyFreeChamps:NO :^(NSArray *champions) {
+        for (ILA_ChampionDto *champ in champions) {
+            [ILA_StaticData getChampionInfoFor:[NSNumber numberWithLong:champ.champId].intValue withData:@"image" :^(ILA_StaticData_ChampionDto *championInfo) {
+                if (champ.freeToPlay) {
+                    NSMutableArray *section = champs[0];
+                    [section addObject:championInfo];
+                    [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:[section indexOfObject:championInfo] inSection:0]]];
+                } else {
+                    NSMutableArray *section = champs[1];
+                    [section addObject:championInfo];
+                    [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:[section indexOfObject:championInfo] inSection:1]]];
+                }
+                
+                for (NSMutableArray *section in champs) {
+                    NSMutableArray *oldSection = [NSArray arrayWithArray:section].mutableCopy;
+                    [section sortUsingComparator:^NSComparisonResult(ILA_StaticData_ChampionDto *obj1, ILA_StaticData_ChampionDto *obj2) {
+                        NSString *champName1 = obj1.name;
+                        NSString *champName2 = obj2.name;
+                        return [champName1 compare:champName2];
+                    }];
+                    
+                    // Animation
+                    for (NSDictionary *champInfo2 in section) {
+                        if ([oldSection indexOfObject:champInfo2] != [section indexOfObject:champInfo2]) {
+                            [self.collectionView moveItemAtIndexPath:[NSIndexPath indexPathForItem:[oldSection indexOfObject:champInfo2] inSection:[champs indexOfObject:section]] toIndexPath:[NSIndexPath indexPathForItem:[section indexOfObject:champInfo2] inSection:[champs indexOfObject:section]]];
+                            [oldSection removeObject:champInfo2];
+                            [oldSection insertObject:champInfo2 atIndex:[section indexOfObject:champInfo2]];
+                        }
+                    }
+                }
+                
+                if ([champs[0] count] + [champs[1] count] == champions.count) {
+                    [refreshControl endRefreshing];
+                }
+            }];
+        }
+    }];
+```
