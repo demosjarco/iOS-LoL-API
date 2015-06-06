@@ -68,7 +68,7 @@
 /**
  @note Requests to this API will not be counted in your Rate Limit.
  */
-+ (void)getChampionInfoFor:(int)champId withData:(NSString *)champDataSelected :(void (^)(ILA_ChampionDto *))completionBlock {
++ (void)getChampionInfoFor:(int)champId withData:(NSString *)champDataSelected :(void (^)(ILA_StaticData_ChampionDto *))completionBlock {
     NSURLComponents *components = [NSURLComponents new];
     [components setScheme:@"https"];
     [ILA_Connection getRegionHost:^(NSString *host) {
@@ -94,8 +94,23 @@
                     
                     [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"championInfo_%d_%@", champId, champDataSelected] inFolder:@"staticData" :^(id json, NSInteger responseCode, BOOL fromCache) {
                         @autoreleasepool {
-                            ILA_ChampionDto *champInfo = [ILA_ChampionDto new];
-                            champInfo.bo
+                            ILA_StaticData_ChampionDto *champInfo = [ILA_StaticData_ChampionDto new];
+                            champInfo.allytips = json[@"allytips"];
+                            champInfo.blurb = json[@"blurb"];
+                            champInfo.enemytips = json[@"enemytips"];
+                            champInfo.champId = [json[@"id"] intValue];
+                            champInfo.image = json[@"image"];
+                            champInfo.info = json[@"info"];
+                            champInfo.key = json[@"key"];
+                            champInfo.lore = json[@"lore"];
+                            champInfo.name = json[@"name"];
+                            champInfo.partype = json[@"partype"];
+                            champInfo.passive = json[@"passive"];
+                            champInfo.recommended = json[@"recommended"];
+                            champInfo.skins = json[@"skins"];
+                            champInfo.spells = json[@"spells"];
+                            champInfo.stats = json[@"stats"];
+                            champInfo.title = json[@"title"];
                             
                             completionBlock(champInfo);
                         }
