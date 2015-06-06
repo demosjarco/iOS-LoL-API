@@ -15,6 +15,7 @@ Please read Riot Games API terms [here](https://developer.riotgames.com/terms) a
 - ARC
 
 ### Cocoa Frameworks Required
-- TBA
+- Foundation
+- UIKit
 
 ## Getting Started
