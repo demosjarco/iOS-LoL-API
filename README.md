@@ -25,31 +25,29 @@ Please read Riot Games API terms [here](https://developer.riotgames.com/terms) a
 3. Call away! Note if you hit your rate limit or for whatever reason server is offline, it will attempt to read the last saved version and return that instead. These files are saved in the `~/Documents/Riot_API_Cache/` of your application documents directory. You may change this in `ILA_LocalStore`.
 4. 
 ## Examples
-See project LoL API Explorer for code examples or except for my league app below.
+See project LoL API Explorer for code examples and/or excerpt for my league app below.
 
 ```
 [ILA_Champion getAllChampionsWithOnlyFreeChamps:NO :^(NSArray *champions) {
         for (ILA_ChampionDto *champ in champions) {
             [ILA_StaticData getChampionInfoFor:[NSNumber numberWithLong:champ.champId].intValue withData:@"image" :^(ILA_StaticData_ChampionDto *championInfo) {
                 if (champ.freeToPlay) {
-                    NSMutableArray *section = champs[0];
-                    [section addObject:championInfo];
-                    [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:[section indexOfObject:championInfo] inSection:0]]];
+                    // Do stuff
                 } else {
-                    NSMutableArray *section = champs[1];
-                    [section addObject:championInfo];
-                    [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:[section indexOfObject:championInfo] inSection:1]]];
+                    // Do other stuff
                 }
                 
                 for (NSMutableArray *section in champs) {
+                    // Gotta make a quick snapshot of what it was before for fancy stuff later on
                     NSMutableArray *oldSection = [NSArray arrayWithArray:section].mutableCopy;
+                    // I like champions organized alphabetically
                     [section sortUsingComparator:^NSComparisonResult(ILA_StaticData_ChampionDto *obj1, ILA_StaticData_ChampionDto *obj2) {
                         NSString *champName1 = obj1.name;
                         NSString *champName2 = obj2.name;
                         return [champName1 compare:champName2];
                     }];
                     
-                    // Animation
+                    // Lets get fancy and animate movement of items
                     for (NSDictionary *champInfo2 in section) {
                         if ([oldSection indexOfObject:champInfo2] != [section indexOfObject:champInfo2]) {
                             [self.collectionView moveItemAtIndexPath:[NSIndexPath indexPathForItem:[oldSection indexOfObject:champInfo2] inSection:[champs indexOfObject:section]] toIndexPath:[NSIndexPath indexPathForItem:[section indexOfObject:champInfo2] inSection:[champs indexOfObject:section]]];
@@ -59,6 +57,7 @@ See project LoL API Explorer for code examples or except for my league app below
                     }
                 }
                 
+                // Lets stop the spinning wheel
                 if ([champs[0] count] + [champs[1] count] == champions.count) {
                     [refreshControl endRefreshing];
                 }
