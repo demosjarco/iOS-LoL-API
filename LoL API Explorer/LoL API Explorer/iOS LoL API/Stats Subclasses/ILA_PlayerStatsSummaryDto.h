@@ -12,4 +12,10 @@
 
 @interface ILA_PlayerStatsSummaryDto : NSObject
 
+@property (nonatomic, retain) ILA_AggregatedStatsDto *aggregatedStats;
+@property (nonatomic) int losses;
+@property (nonatomic, retain) NSDate *modifyDate;
+@property (nonatomic, retain) NSString *playerStatSummaryType;
+@property (nonatomic) int wins;
+
 @end
