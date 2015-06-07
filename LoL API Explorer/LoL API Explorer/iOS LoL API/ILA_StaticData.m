@@ -418,9 +418,9 @@
             [ILA_Setup getAPIkey:^(NSString *apiKey) {
                 [self optimalLocaleForRegion:^(BOOL optimalLocale) {
                     if (optimalLocale) {
-                        [components setQuery:[NSString stringWithFormat:@"locale=%@&runeData=%@&api_key=%@", [[NSLocale autoupdatingCurrentLocale] localeIdentifier], runeListDataSelected, apiKey]];
+                        [components setQuery:[NSString stringWithFormat:@"locale=%@&runeListData=%@&api_key=%@", [[NSLocale autoupdatingCurrentLocale] localeIdentifier], runeListDataSelected, apiKey]];
                     } else {
-                        [components setQuery:[NSString stringWithFormat:@"runeData=%@&api_key=%@", runeListDataSelected, apiKey]];
+                        [components setQuery:[NSString stringWithFormat:@"runeListData=%@&api_key=%@", runeListDataSelected, apiKey]];
                     }
                     
                     [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"runeList_%@", runeListDataSelected] inFolder:@"staticData" :^(id json, NSInteger responseCode, BOOL fromCache) {
