@@ -36,8 +36,16 @@
                     
                     NSArray *playerStatSummaries = json[@"playerStatSummaries"];
                     for (NSDictionary *statSummary in playerStatSummaries) {
+                        NSDictionary *aggregatedStats = statSummary[@"aggregatedStats"];
+                        
                         if ([statSummary[@"playerStatSummaryType"] isEqualToString:@"AramUnranked5x5"]) {
                             AramUnranked5x5 = [ILA_PlayerStatsSummaryDto new];
+                            
+                            AramUnranked5x5.aggregatedStats = [ILA_AggregatedStatsDto new];
+                            AramUnranked5x5.aggregatedStats.totalChampionKills = [aggregatedStats[@"totalChampionKills"] intValue];
+                            AramUnranked5x5.aggregatedStats.totalTurretsKilled = [aggregatedStats[@"totalTurretsKilled"] intValue];
+                            AramUnranked5x5.aggregatedStats.totalAssists = [aggregatedStats[@"totalAssists"] intValue];
+                            
                             AramUnranked5x5.losses = [statSummary[@"losses"] intValue];
                             @autoreleasepool {
                                 long milliseconds = [statSummary[@"modifyDate"] longValue];
@@ -47,6 +55,9 @@
                             AramUnranked5x5.wins = [statSummary[@"wins"] intValue];
                         } else if ([statSummary[@"playerStatSummaryType"] isEqualToString:@"Ascension"]) {
                             Ascension = [ILA_PlayerStatsSummaryDto new];
+                            
+                            Ascension.aggregatedStats = [ILA_AggregatedStatsDto new];
+                            
                             Ascension.losses = [statSummary[@"losses"] intValue];
                             @autoreleasepool {
                                 long milliseconds = [statSummary[@"modifyDate"] longValue];
@@ -56,6 +67,9 @@
                             Ascension.wins = [statSummary[@"wins"] intValue];
                         } else if ([statSummary[@"playerStatSummaryType"] isEqualToString:@"CAP5x5"]) {
                             CAP5x5 = [ILA_PlayerStatsSummaryDto new];
+                            
+                            CAP5x5.aggregatedStats = [ILA_AggregatedStatsDto new];
+                            
                             CAP5x5.losses = [statSummary[@"losses"] intValue];
                             @autoreleasepool {
                                 long milliseconds = [statSummary[@"modifyDate"] longValue];
@@ -65,6 +79,9 @@
                             CAP5x5.wins = [statSummary[@"wins"] intValue];
                         } else if ([statSummary[@"playerStatSummaryType"] isEqualToString:@"CoopVsAI"]) {
                             CoopVsAI = [ILA_PlayerStatsSummaryDto new];
+                            
+                            CoopVsAI.aggregatedStats = [ILA_AggregatedStatsDto new];
+                            
                             CoopVsAI.losses = [statSummary[@"losses"] intValue];
                             @autoreleasepool {
                                 long milliseconds = [statSummary[@"modifyDate"] longValue];
@@ -74,6 +91,9 @@
                             CoopVsAI.wins = [statSummary[@"wins"] intValue];
                         } else if ([statSummary[@"playerStatSummaryType"] isEqualToString:@"CoopVsAI3x3"]) {
                             CoopVsAI3x3 = [ILA_PlayerStatsSummaryDto new];
+                            
+                            CoopVsAI3x3.aggregatedStats = [ILA_AggregatedStatsDto new];
+                            
                             CoopVsAI3x3.losses = [statSummary[@"losses"] intValue];
                             @autoreleasepool {
                                 long milliseconds = [statSummary[@"modifyDate"] longValue];
@@ -83,6 +103,9 @@
                             CoopVsAI3x3.wins = [statSummary[@"wins"] intValue];
                         } else if ([statSummary[@"playerStatSummaryType"] isEqualToString:@"CounterPick"]) {
                             CounterPick = [ILA_PlayerStatsSummaryDto new];
+                            
+                            CounterPick.aggregatedStats = [ILA_AggregatedStatsDto new];
+                            
                             CounterPick.losses = [statSummary[@"losses"] intValue];
                             @autoreleasepool {
                                 long milliseconds = [statSummary[@"modifyDate"] longValue];
@@ -92,6 +115,9 @@
                             CounterPick.wins = [statSummary[@"wins"] intValue];
                         } else if ([statSummary[@"playerStatSummaryType"] isEqualToString:@"FirstBlood1x1"]) {
                             FirstBlood1x1 = [ILA_PlayerStatsSummaryDto new];
+                            
+                            FirstBlood1x1.aggregatedStats = [ILA_AggregatedStatsDto new];
+                            
                             FirstBlood1x1.losses = [statSummary[@"losses"] intValue];
                             @autoreleasepool {
                                 long milliseconds = [statSummary[@"modifyDate"] longValue];
@@ -101,6 +127,9 @@
                             FirstBlood1x1.wins = [statSummary[@"wins"] intValue];
                         } else if ([statSummary[@"playerStatSummaryType"] isEqualToString:@"FirstBlood2x2"]) {
                             FirstBlood2x2 = [ILA_PlayerStatsSummaryDto new];
+                            
+                            FirstBlood2x2.aggregatedStats = [ILA_AggregatedStatsDto new];
+                            
                             FirstBlood2x2.losses = [statSummary[@"losses"] intValue];
                             @autoreleasepool {
                                 long milliseconds = [statSummary[@"modifyDate"] longValue];
@@ -110,6 +139,9 @@
                             FirstBlood2x2.wins = [statSummary[@"wins"] intValue];
                         } else if ([statSummary[@"playerStatSummaryType"] isEqualToString:@"Hexakill"]) {
                             Hexakill = [ILA_PlayerStatsSummaryDto new];
+                            
+                            Hexakill.aggregatedStats = [ILA_AggregatedStatsDto new];
+                            
                             Hexakill.losses = [statSummary[@"losses"] intValue];
                             @autoreleasepool {
                                 long milliseconds = [statSummary[@"modifyDate"] longValue];
@@ -119,6 +151,9 @@
                             Hexakill.wins = [statSummary[@"wins"] intValue];
                         } else if ([statSummary[@"playerStatSummaryType"] isEqualToString:@"KingPoro"]) {
                             KingPoro = [ILA_PlayerStatsSummaryDto new];
+                            
+                            KingPoro.aggregatedStats = [ILA_AggregatedStatsDto new];
+                            
                             KingPoro.losses = [statSummary[@"losses"] intValue];
                             @autoreleasepool {
                                 long milliseconds = [statSummary[@"modifyDate"] longValue];
@@ -128,6 +163,9 @@
                             KingPoro.wins = [statSummary[@"wins"] intValue];
                         } else if ([statSummary[@"playerStatSummaryType"] isEqualToString:@"NightmareBot"]) {
                             NightmareBot = [ILA_PlayerStatsSummaryDto new];
+                            
+                            NightmareBot.aggregatedStats = [ILA_AggregatedStatsDto new];
+                            
                             NightmareBot.losses = [statSummary[@"losses"] intValue];
                             @autoreleasepool {
                                 long milliseconds = [statSummary[@"modifyDate"] longValue];
@@ -137,6 +175,34 @@
                             NightmareBot.wins = [statSummary[@"wins"] intValue];
                         } else if ([statSummary[@"playerStatSummaryType"] isEqualToString:@"OdinUnranked"]) {
                             OdinUnranked = [ILA_PlayerStatsSummaryDto new];
+                            
+                            OdinUnranked.aggregatedStats = [ILA_AggregatedStatsDto new];
+                            OdinUnranked.aggregatedStats.totalChampionKills = [aggregatedStats[@"totalChampionKills"] intValue];
+                            OdinUnranked.aggregatedStats.totalAssists = [aggregatedStats[@"totalAssists"] intValue];
+                            OdinUnranked.aggregatedStats.maxChampionsKilled = [aggregatedStats[@"maxChampionsKilled"] intValue];
+                            OdinUnranked.aggregatedStats.averageNodeCapture = [aggregatedStats[@"averageNodeCapture"] intValue];
+                            OdinUnranked.aggregatedStats.averageNodeNeutralize = [aggregatedStats[@"averageNodeNeutralize"] intValue];
+                            OdinUnranked.aggregatedStats.averageTeamObjective = [aggregatedStats[@"averageTeamObjective"] intValue];
+                            OdinUnranked.aggregatedStats.averageTotalPlayerScore = [aggregatedStats[@"averageTotalPlayerScore"] intValue];
+                            OdinUnranked.aggregatedStats.averageCombatPlayerScore = [aggregatedStats[@"averageCombatPlayerScore"] intValue];
+                            OdinUnranked.aggregatedStats.averageObjectivePlayerScore = [aggregatedStats[@"averageObjectivePlayerScore"] intValue];
+                            OdinUnranked.aggregatedStats.averageNodeCaptureAssist = [aggregatedStats[@"averageNodeCaptureAssist"] intValue];
+                            OdinUnranked.aggregatedStats.averageNodeNeutralizeAssist = [aggregatedStats[@"averageNodeNeutralizeAssist"] intValue];
+                            OdinUnranked.aggregatedStats.maxNodeCapture = [aggregatedStats[@"maxNodeCapture"] intValue];
+                            OdinUnranked.aggregatedStats.maxNodeNeutralize = [aggregatedStats[@"maxNodeNeutralize"] intValue];
+                            OdinUnranked.aggregatedStats.maxTeamObjective = [aggregatedStats[@"maxTeamObjective"] intValue];
+                            OdinUnranked.aggregatedStats.maxTotalPlayerScore = [aggregatedStats[@"maxTotalPlayerScore"] intValue];
+                            OdinUnranked.aggregatedStats.maxCombatPlayerScore = [aggregatedStats[@"maxCombatPlayerScore"] intValue];
+                            OdinUnranked.aggregatedStats.maxObjectivePlayerScore = [aggregatedStats[@"maxObjectivePlayerScore"] intValue];
+                            OdinUnranked.aggregatedStats.maxNodeCaptureAssist = [aggregatedStats[@"maxNodeCaptureAssist"] intValue];
+                            OdinUnranked.aggregatedStats.maxNodeNeutralizeAssist = [aggregatedStats[@"maxNodeNeutralizeAssist"] intValue];
+                            OdinUnranked.aggregatedStats.totalNodeNeutralize = [aggregatedStats[@"totalNodeNeutralize"] intValue];
+                            OdinUnranked.aggregatedStats.totalNodeCapture = [aggregatedStats[@"totalNodeCapture"] intValue];
+                            OdinUnranked.aggregatedStats.averageChampionsKilled = [aggregatedStats[@"averageChampionsKilled"] intValue];
+                            OdinUnranked.aggregatedStats.averageNumDeaths = [aggregatedStats[@"averageNumDeaths"] intValue];
+                            OdinUnranked.aggregatedStats.averageAssists = [aggregatedStats[@"averageAssists"] intValue];
+                            OdinUnranked.aggregatedStats.maxAssists = [aggregatedStats[@"maxAssists"] intValue];
+                            
                             OdinUnranked.losses = [statSummary[@"losses"] intValue];
                             @autoreleasepool {
                                 long milliseconds = [statSummary[@"modifyDate"] longValue];
@@ -146,6 +212,9 @@
                             OdinUnranked.wins = [statSummary[@"wins"] intValue];
                         } else if ([statSummary [@"playerStatSummaryType"] isEqualToString:@"OneForAll5x5"]) {
                             OneForAll5x5 = [ILA_PlayerStatsSummaryDto new];
+                            
+                            OneForAll5x5.aggregatedStats = [ILA_AggregatedStatsDto new];
+                            
                             OneForAll5x5.losses = [statSummary[@"losses"] intValue];
                             @autoreleasepool {
                                 long milliseconds = [statSummary[@"modifyDate"] longValue];
@@ -155,6 +224,9 @@
                             OneForAll5x5.wins = [statSummary[@"wins"] intValue];
                         } else if ([statSummary[@"playerStatSummaryType"] isEqualToString:@"RankedPremade3x3"]) {
                             RankedPremade3x3 = [ILA_PlayerStatsSummaryDto new];
+                            
+                            RankedPremade3x3.aggregatedStats = [ILA_AggregatedStatsDto new];
+                            
                             RankedPremade3x3.losses = [statSummary[@"losses"] intValue];
                             @autoreleasepool {
                                 long milliseconds = [statSummary[@"modifyDate"] longValue];
@@ -164,6 +236,9 @@
                             RankedPremade3x3.wins = [statSummary[@"wins"] intValue];
                         } else if ([statSummary[@"playerStatSummaryType"] isEqualToString:@"RankedPremade5x5"]) {
                             RankedPremade5x5 = [ILA_PlayerStatsSummaryDto new];
+                            
+                            RankedPremade5x5.aggregatedStats = [ILA_AggregatedStatsDto new];
+                            
                             RankedPremade5x5.losses = [statSummary[@"losses"] intValue];
                             @autoreleasepool {
                                 long milliseconds = [statSummary[@"modifyDate"] longValue];
@@ -173,6 +248,9 @@
                             RankedPremade5x5.wins = [statSummary[@"wins"] intValue];
                         } else if ([statSummary[@"playerStatSummaryType"] isEqualToString:@"RankedSolo5x5"]) {
                             RankedSolo5x5 = [ILA_PlayerStatsSummaryDto new];
+                            
+                            RankedSolo5x5.aggregatedStats = [ILA_AggregatedStatsDto new];
+                            
                             RankedSolo5x5.losses = [statSummary[@"losses"] intValue];
                             @autoreleasepool {
                                 long milliseconds = [statSummary[@"modifyDate"] longValue];
@@ -182,6 +260,9 @@
                             RankedSolo5x5.wins = [statSummary[@"wins"] intValue];
                         } else if ([statSummary[@"playerStatSummaryType"] isEqualToString:@"RankedTeam3x3"]) {
                             RankedTeam3x3 = [ILA_PlayerStatsSummaryDto new];
+                            
+                            RankedTeam3x3.aggregatedStats = [ILA_AggregatedStatsDto new];
+                            
                             RankedTeam3x3.losses = [statSummary[@"losses"] intValue];
                             @autoreleasepool {
                                 long milliseconds = [statSummary[@"modifyDate"] longValue];
@@ -191,6 +272,9 @@
                             RankedTeam3x3.wins = [statSummary[@"wins"] intValue];
                         } else if ([statSummary[@"playerStatSummaryType"] isEqualToString:@"RankedTeam5x5"]) {
                             RankedTeam5x5 = [ILA_PlayerStatsSummaryDto new];
+                            
+                            RankedTeam5x5.aggregatedStats = [ILA_AggregatedStatsDto new];
+                            
                             RankedTeam5x5.losses = [statSummary[@"losses"] intValue];
                             @autoreleasepool {
                                 long milliseconds = [statSummary[@"modifyDate"] longValue];
@@ -200,6 +284,9 @@
                             RankedTeam5x5.wins = [statSummary[@"wins"] intValue];
                         } else if ([statSummary[@"playerStatSummaryType"] isEqualToString:@"SummonersRift6x6"]) {
                             SummonersRift6x6 = [ILA_PlayerStatsSummaryDto new];
+                            
+                            SummonersRift6x6.aggregatedStats = [ILA_AggregatedStatsDto new];
+                            
                             SummonersRift6x6.losses = [statSummary[@"losses"] intValue];
                             @autoreleasepool {
                                 long milliseconds = [statSummary[@"modifyDate"] longValue];
@@ -209,6 +296,14 @@
                             SummonersRift6x6.wins = [statSummary[@"wins"] intValue];
                         } else if ([statSummary[@"playerStatSummaryType"] isEqualToString:@"Unranked"]) {
                             Unranked = [ILA_PlayerStatsSummaryDto new];
+                            
+                            Unranked.aggregatedStats = [ILA_AggregatedStatsDto new];
+                            Unranked.aggregatedStats.totalChampionKills = [aggregatedStats[@"totalChampionKills"] intValue];
+                            Unranked.aggregatedStats.totalMinionKills = [aggregatedStats[@"totalMinionKills"] intValue];
+                            Unranked.aggregatedStats.totalTurretsKilled = [aggregatedStats[@"totalTurretsKilled"] intValue];
+                            Unranked.aggregatedStats.totalNeutralMinionsKilled = [aggregatedStats[@"totalNeutralMinionsKilled"] intValue];
+                            Unranked.aggregatedStats.totalAssists = [aggregatedStats[@"totalAssists"] intValue];
+                            
                             Unranked.losses = [statSummary[@"losses"] intValue];
                             @autoreleasepool {
                                 long milliseconds = [statSummary[@"modifyDate"] longValue];
@@ -218,6 +313,9 @@
                             Unranked.wins = [statSummary[@"wins"] intValue];
                         } else if ([statSummary[@"playerStatSummaryType"] isEqualToString:@"Unranked3x3"]) {
                             Unranked3x3 = [ILA_PlayerStatsSummaryDto new];
+                            
+                            Unranked3x3.aggregatedStats = [ILA_AggregatedStatsDto new];
+                            
                             Unranked3x3.losses = [statSummary[@"losses"] intValue];
                             @autoreleasepool {
                                 long milliseconds = [statSummary[@"modifyDate"] longValue];
@@ -227,6 +325,9 @@
                             Unranked3x3.wins = [statSummary[@"wins"] intValue];
                         } else if ([statSummary[@"playerStatSummaryType"] isEqualToString:@"URF"]) {
                             URF = [ILA_PlayerStatsSummaryDto new];
+                            
+                            URF.aggregatedStats = [ILA_AggregatedStatsDto new];
+                            
                             URF.losses = [statSummary[@"losses"] intValue];
                             @autoreleasepool {
                                 long milliseconds = [statSummary[@"modifyDate"] longValue];
@@ -236,6 +337,9 @@
                             URF.wins = [statSummary[@"wins"] intValue];
                         } else if ([statSummary[@"playerStatSummaryType"] isEqualToString:@"URFBots"]) {
                             URFBots = [ILA_PlayerStatsSummaryDto new];
+                            
+                            URFBots.aggregatedStats = [ILA_AggregatedStatsDto new];
+                            
                             URFBots.losses = [statSummary[@"losses"] intValue];
                             @autoreleasepool {
                                 long milliseconds = [statSummary[@"modifyDate"] longValue];
