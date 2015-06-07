@@ -22,7 +22,7 @@
         [ILA_Connection getRegionCode:^(NSString *regionCode) {
             @autoreleasepool {
                 NSArray *endpoints = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Endpoints" ofType:@"plist"]];
-                NSDictionary *endpointSection = endpoints[10];
+                NSDictionary *endpointSection = endpoints[9];
                 NSArray *subEndpoints = endpointSection[@"subEndpoints"];
                 NSDictionary *endpoint = subEndpoints[1];
                 
