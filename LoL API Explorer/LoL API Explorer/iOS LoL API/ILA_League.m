@@ -54,7 +54,7 @@
  @note A 404 error from this can also mean the summoner is not currently ranked
  @warning This method takes a max of 10 summoners. If you provide more than 10 in @p summonerIds it will only process the first 10.
  */
-+ (void)getLeagueEntryForSummonerIDs:(NSArray *)summonerIds :(void (^)(NSDictionary *))completionBlock {
++ (void)getLeagueEntryForSummonerIDs:(NSArray *)summonerIds :(void (^)(NSDictionary *))completionBlock :(void (^)())unrankedBlock {
     // Trim array of summonerIds to 10.
     NSArray *trimmedSummonerIds;
     if (summonerIds.count > 10) {
@@ -81,7 +81,11 @@
             [ILA_Setup getAPIkey:^(NSString *apiKey) {
                 [components setQuery:[NSString stringWithFormat:@"api_key=%@", apiKey]];
                 [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"leagueEntry_%@", [[trimmedSummonerIds valueForKey:@"description"] componentsJoinedByString:@"-"]] inFolder:@"league" :^(id json, NSInteger responseCode, BOOL fromCache) {
-                    completionBlock(json);
+                    if (responseCode == 404) {
+                        unrankedBlock();
+                    } else {
+                        completionBlock(json);
+                    }
                 }];
             }];
         }];
