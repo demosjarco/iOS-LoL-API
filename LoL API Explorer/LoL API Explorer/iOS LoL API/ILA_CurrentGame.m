@@ -33,7 +33,11 @@
             [ILA_Setup getAPIkey:^(NSString *apiKey) {
                 [components setQuery:[NSString stringWithFormat:@"api_key=%@", apiKey]];
                 [ILA_Connection connectToServer:[components URL] withFilename:[NSString stringWithFormat:@"currentGame_%ld", summonerID] inFolder:@"currentGame" :^(id json, NSInteger responseCode, BOOL fromCache) {
-                    completionBlock(json);
+                    if (fromCache) {
+                        completionBlock(nil);
+                    } else {
+                        completionBlock(json);
+                    }
                 }];
                 
             }];
