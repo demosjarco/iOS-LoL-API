@@ -323,7 +323,7 @@
                                         detail.content = summonerMap;
                                         [self.navigationController pushViewController:detail animated:YES];
                                     }
-                                }];
+                                } :nil];
                             }
                         }]];
                         [self presentViewController:alert animated:YES completion:nil];
@@ -532,11 +532,11 @@
                         [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
                         [alert addAction:[UIAlertAction actionWithTitle:@"Submit" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                             @autoreleasepool {
-                                [ILA_StaticData getChampionInfoFor:[alert.textFields[0] text].intValue withData:@"all" :^(NSDictionary *championList) {
+                                [ILA_StaticData getChampionInfoFor:[alert.textFields[0] text].intValue withData:@"all" :^(ILA_StaticData_ChampionDto *championInfo) {
                                     @autoreleasepool {
                                         DetailDictionary *detail = [[DetailDictionary alloc] init];
                                         detail.title = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
-                                        detail.content = championList;
+                                        // detail.content = championList;
                                         [self.navigationController pushViewController:detail animated:YES];
                                     }
                                 }];
