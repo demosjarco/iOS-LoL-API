@@ -38,10 +38,10 @@
 }
 
 + (void)connectToServer:(NSURL *)url withFilename:(NSString *)cacheFilename inFolder:(NSString *)folder :(void (^)(id, NSInteger, BOOL))completionBlock {
-    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:url] queue:[NSOperationQueue new] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        if (connectionError) {
+    [[[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (error) {
             // Error Log
-            NSLog(@"Error (%@) while retrieving file from %@", connectionError, url.absoluteString);
+            NSLog(@"Error (%@) while retrieving file from %@", error, url.absoluteString);
             
             // Cache
             [ILA_LocalStore getCacheOfFilename:cacheFilename inFolder:folder :^(NSDictionary *dictJson, NSArray *arrJson) {
@@ -84,7 +84,7 @@
                 }];
             }
         }
-    }];
+    }] resume];
 }
 
 @end

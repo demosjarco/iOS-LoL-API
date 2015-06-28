@@ -43,12 +43,12 @@
 }
 
 + (void)connectToDDragon:(NSString *)url :(void (^)(NSData *data))completionBlock {
-    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+    [[[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:url] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         NSHTTPURLResponse *correctResponse = (NSHTTPURLResponse *)response;
-        if (correctResponse.statusCode == 200 && data && !connectionError) {
+        if (correctResponse.statusCode == 200 && data && !error) {
             completionBlock(data);
         }
-    }];
+    }] resume];
 }
 
 #pragma mark - Public Methods
